@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>valkyrie.pe // archive</title>
+  <title>valkyrie.pe</title>
   <style>
-    /* --- CRISTAL AERO ULTRA TRANSLÚCIDO --- */
     :root {
-      --glass-window: rgba(10, 12, 16, 0.28);
-      --glass-inner: rgba(5, 7, 10, 0.15);
-      --glass-card: rgba(14, 16, 22, 0.32);
+      --glass-window: rgba(12, 14, 18, 0.42);
+      --glass-inner: rgba(6, 8, 12, 0.25);
+      --glass-card: rgba(18, 22, 30, 0.45);
       --glass-border: rgba(255, 255, 255, 0.18);
       --text-main: #f0f0f0;
-      --text-muted: #b0b5c0;
+      --text-muted: #a6adb9;
+      --accent-orange: #ff9d42;
     }
 
     * {
@@ -36,7 +36,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 30px 15px;
+      padding: 25px 15px;
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -45,39 +45,39 @@
       }
     }
 
-    /* VENTANA PRINCIPAL */
+    /* VENTANA PRINCIPAL MÁS AMPLIA */
     .aero-window {
       width: 100%;
-      max-width: 1040px;
-      min-height: 620px;
+      max-width: 1140px;
+      min-height: 680px;
       background: var(--glass-window);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--glass-border);
-      border-radius: 14px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.35);
       display: flex;
       flex-direction: column;
       overflow: hidden;
     }
 
-    /* ENCABEZADO */
+    /* BARRA SUPERIOR CON COLOR CONTRASTADO Y GLOSS */
     .window-header {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(15, 18, 24, 0.45) 100%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 14px 25px;
+      background: linear-gradient(180deg, rgba(45, 32, 24, 0.75) 0%, rgba(20, 15, 12, 0.85) 60%, rgba(10, 8, 7, 0.95) 100%);
+      border-bottom: 1px solid rgba(255, 157, 66, 0.3);
+      padding: 16px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
     }
 
     .brand-title {
       font-family: "Georgia", serif;
-      font-size: 1.6rem;
-      letter-spacing: 1.5px;
-      color: #ffffff;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+      font-size: 1.65rem;
+      letter-spacing: 2px;
+      color: #fff4ea;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
       font-weight: 700;
     }
 
@@ -88,54 +88,71 @@
 
     .btn-link {
       padding: 7px 15px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(20, 24, 30, 0.5) 100%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(20, 24, 30, 0.6) 100%);
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 6px;
-      color: #f0f0f0;
+      color: #eaeaea;
       font-size: 0.8rem;
       font-weight: 600;
       text-decoration: none;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
       transition: all 0.15s ease;
     }
 
     .btn-link:hover {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(30, 35, 45, 0.7) 100%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(35, 40, 50, 0.8) 100%);
       color: #fff;
     }
 
-    /* CUERPO */
+    /* CUERPO PRINCIPAL */
     .window-body {
       display: flex;
       flex: 1;
       background: var(--glass-inner);
     }
 
-    /* SIDEBAR */
+    /* MENÚ LATERAL CON SUBTÍTULOS ESTILO FRUTIGER AERO */
     .sidebar {
-      width: 170px;
-      background: rgba(10, 12, 16, 0.35);
+      width: 190px;
+      background: rgba(10, 12, 16, 0.45);
       border-right: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 20px 12px;
+      padding: 18px 12px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 6px;
       flex-shrink: 0;
+    }
+
+    .nav-category {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent-orange);
+      padding: 12px 10px 4px 10px;
+      pointer-events: none;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
     }
 
     .nav-btn {
       width: 100%;
-      padding: 10px 14px;
+      padding: 9px 14px;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(15, 18, 24, 0.45) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 6px;
       color: var(--text-main);
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
       text-align: left;
       transition: all 0.15s ease;
       box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+    }
+
+    .nav-btn.sub-item {
+      padding-left: 22px;
+      font-size: 0.82rem;
+      color: #d0d5e0;
     }
 
     .nav-btn:hover {
@@ -146,17 +163,17 @@
 
     .nav-btn.active {
       background: linear-gradient(180deg, rgba(5, 7, 10, 0.6) 0%, rgba(25, 28, 36, 0.6) 100%);
-      border-color: rgba(255, 255, 255, 0.35);
+      border-color: rgba(255, 157, 66, 0.4);
       color: #fff;
       box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7);
     }
 
-    /* ÁREA DE CONTENIDO */
+    /* CONTENEDOR DE CONTENIDO */
     .content-area {
       flex: 1;
       padding: 24px 28px;
       overflow-y: auto;
-      max-height: 560px;
+      max-height: 600px;
     }
 
     .tab-content {
@@ -173,78 +190,239 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* JUEGO */
-    .game-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 760px;
-      margin: 0 auto;
+    /* --- LAYOUT DE LA PESTAÑA: INICIO --- */
+    .inicio-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr 240px;
+      gap: 18px;
+      align-items: start;
     }
 
-    canvas {
-      width: 100%;
-      height: 250px;
-      background: #ffffff;
-      border: 2px solid rgba(0, 0, 0, 0.8);
-      border-radius: 8px;
-      display: block;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-      touch-action: none;
-    }
-
-    .play-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    .inicio-col {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.75);
-      border-radius: 8px;
-      backdrop-filter: blur(2px);
+      gap: 16px;
     }
 
-    .play-overlay.hidden {
+    .widget-box {
+      background: var(--glass-card);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      padding: 14px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .widget-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--accent-orange);
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 4px;
+    }
+
+    /* Reproductor de música retro */
+    .music-player {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .track-name {
+      font-size: 0.8rem;
+      color: #fff;
+      font-family: monospace;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .player-controls {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-play-pause {
+      flex: 1;
+      padding: 6px;
+      background: linear-gradient(180deg, #333 0%, #111 100%);
+      border: 1px solid #555;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+
+    /* Calendario */
+    .calendar-display {
+      text-align: center;
+      padding: 6px 0;
+    }
+    .cal-day-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+    .cal-day-text {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+    }
+
+    /* Reloj Lima */
+    .clock-display {
+      font-family: "Courier New", monospace;
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-align: center;
+      color: #fff;
+      background: rgba(0,0,0,0.4);
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* Encuesta Gatos vs Perros */
+    .poll-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .poll-btn {
+      width: 100%;
+      padding: 7px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-align: left;
+      transition: all 0.15s ease;
+    }
+    .poll-btn:hover {
+      background: rgba(255,255,255,0.18);
+    }
+    .poll-bar {
+      height: 6px;
+      background: rgba(255, 157, 66, 0.8);
+      border-radius: 3px;
+      margin-top: 4px;
       display: none;
     }
 
-    .play-btn-big {
-      background: linear-gradient(180deg, #222 0%, #000 100%);
-      border: 1px solid #444;
-      color: #ffffff;
-      padding: 12px 32px;
-      font-size: 1.1rem;
+    /* Buy Me a Coffee */
+    .bmc-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(180deg, #ffdd00 0%, #e0a800 100%);
+      color: #000;
+      font-size: 0.82rem;
       font-weight: 700;
-      letter-spacing: 2px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.15s ease;
+    }
+    .bmc-btn:hover {
+      transform: scale(1.02);
+    }
+
+    /* Centro: GIF Display */
+    .center-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+    .random-gif-box {
+      width: 100%;
+      height: 320px;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 8px;
+      overflow: hidden;
       display: flex;
       align-items: center;
-      gap: 10px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-      transition: all 0.15s ease;
+      justify-content: center;
+    }
+    .random-gif-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .play-btn-big:hover {
-      transform: scale(1.05);
-      background: #000;
+    /* --- PESTAÑA: SOBRE MÍ --- */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 22px;
+      background: var(--glass-card);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 8px;
+      padding: 22px;
+    }
+    .about-avatar {
+      width: 100%;
+      height: 220px;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      background-size: cover;
+      background-position: center;
+    }
+    .about-text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #e0e4ec;
     }
 
-    .play-btn-big svg {
-      width: 18px;
-      height: 18px;
-      fill: #ffffff;
+    /* --- PESTAÑA: BLOG --- */
+    .blog-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .blog-post {
+      background: var(--glass-card);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      padding: 16px 20px;
+      backdrop-filter: blur(4px);
+    }
+    .post-timestamp {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-family: monospace;
+      color: var(--accent-orange);
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 3px;
+    }
+    .post-body {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: #e0e4ec;
     }
 
-    /* GRID FIGURAS Y ROPA */
+    /* --- PRODUCTOS Y ARCHIVOS (ROPA / FIGURAS) --- */
     .items-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 18px;
     }
-
     .card {
       background: var(--glass-card);
       border: 1px solid rgba(255, 255, 255, 0.15);
@@ -255,7 +433,6 @@
       box-shadow: 0 6px 15px rgba(0,0,0,0.4);
       backdrop-filter: blur(4px);
     }
-
     .card-img-placeholder {
       width: 100%;
       height: 200px;
@@ -266,29 +443,23 @@
       color: var(--text-muted);
       font-size: 0.85rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      background-size: cover;
-      background-position: center;
     }
-
     .card-info {
       padding: 12px;
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
-
     .card-name {
       font-size: 0.9rem;
       font-weight: 600;
       color: #fff;
     }
-
     .card-price {
       font-size: 0.85rem;
       font-weight: 700;
       color: #a8d5ff;
     }
-
     .card-btn {
       margin-top: 6px;
       padding: 8px 10px;
@@ -303,58 +474,28 @@
       display: block;
       transition: all 0.15s ease;
     }
-
     .card-btn:hover {
       background: #ffffff;
       color: #000000;
     }
 
-    /* FEED DE BLOG LIMPIO (SIN TÍTULOS GRANDES) */
-    .blog-feed {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .blog-post {
-      background: var(--glass-card);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 8px;
-      padding: 16px 20px;
-      backdrop-filter: blur(4px);
-    }
-
-    .post-date {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-family: monospace;
-      color: #92b4f2;
-      font-weight: bold;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 3px;
-    }
-
-    .post-body {
-      font-size: 0.88rem;
-      line-height: 1.55;
-      color: #e0e4ec;
-    }
-
-    /* CHAT LIMPIO TRANSLÚCIDO */
-    .chat-box {
+    /* --- VISORES: ANIME Y MANGA (GOOGLE DRIVE) --- */
+    .media-viewer-container {
       width: 100%;
-      min-height: 480px;
-      background: rgba(10, 12, 16, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      height: 520px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 8px;
-      padding: 12px;
-      backdrop-filter: blur(4px);
+      overflow: hidden;
+    }
+    .media-viewer-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       .window-body {
         flex-direction: column;
       }
@@ -365,9 +506,14 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         overflow-x: auto;
       }
-      .nav-btn {
-        text-align: center;
-        padding: 8px 12px;
+      .nav-category {
+        display: none;
+      }
+      .inicio-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-layout {
+        grid-template-columns: 1fr;
       }
       .content-area {
         padding: 16px;
@@ -379,6 +525,7 @@
 
   <div class="aero-window">
     
+    <!-- ENCABEZADO DE LA VENTANA (SOLO VALKYRIE.PE) -->
     <header class="window-header">
       <h1 class="brand-title">valkyrie.pe</h1>
       <div class="header-links">
@@ -388,34 +535,157 @@
     </header>
 
     <div class="window-body">
-      <!-- Menú Lateral -->
+      
+      <!-- MENÚ LATERAL CON SUBTÍTULOS ESTILO FRUTIGER AERO -->
       <nav class="sidebar">
-        <button class="nav-btn active" onclick="openTab(event, 'tab-jugar')">jugar</button>
-        <button class="nav-btn" onclick="openTab(event, 'tab-figuras')">figuras</button>
-        <button class="nav-btn" onclick="openTab(event, 'tab-ropa')">ropa</button>
-        <button class="nav-btn" onclick="openTab(event, 'tab-anime')">anime</button>
-        <button class="nav-btn" onclick="openTab(event, 'tab-blog')">blog</button>
-        <button class="nav-btn" onclick="openTab(event, 'tab-chat')">chat</button>
+        <button class="nav-btn active" onclick="openTab(event, 'tab-inicio')">Inicio</button>
+        <button class="nav-btn" onclick="openTab(event, 'tab-sobremi')">Sobre mí</button>
+        <button class="nav-btn" onclick="openTab(event, 'tab-blog')">Blog</button>
+        
+        <!-- SUBTÍTULO NO CLICKEABLE -->
+        <div class="nav-category">Tienda</div>
+        <button class="nav-btn sub-item" onclick="openTab(event, 'tab-ropa')">Ropa</button>
+        <button class="nav-btn sub-item" onclick="openTab(event, 'tab-figuras')">Figuras</button>
+        
+        <!-- SUBTÍTULO NO CLICKEABLE -->
+        <div class="nav-category">Azumanga daioh</div>
+        <button class="nav-btn sub-item" onclick="openTab(event, 'tab-anime')">Anime</button>
+        <button class="nav-btn sub-item" onclick="openTab(event, 'tab-manga')">Manga</button>
       </nav>
 
       <main class="content-area">
 
-        <!-- 1. JUGAR -->
-        <section id="tab-jugar" class="tab-content active">
-          <div class="game-wrapper">
-            <canvas id="gameCanvas" width="760" height="250"></canvas>
+        <!-- ========================================== -->
+        <!-- 1. PESTAÑA: INICIO                         -->
+        <!-- ========================================== -->
+        <section id="tab-inicio" class="tab-content active">
+          <div class="inicio-grid">
             
-            <div id="playOverlay" class="play-overlay">
-              <button class="play-btn-big" onclick="startGame()">
-                <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                PLAY
-              </button>
-              <p style="font-size:0.75rem; color:#333; margin-top:12px; font-weight:600;">[ESPACIO / TOCAR] para saltar</p>
+            <!-- Columna Izquierda: Reproductor + Calendario -->
+            <div class="inicio-col">
+              
+              <!-- Reproductor de Música -->
+              <div class="widget-box">
+                <div class="widget-title">Audio Player</div>
+                <div class="music-player">
+                  <div class="track-name" id="trackName">musica.mp3</div>
+                  <!-- ////// 🎵 ACÁ SUBE TU ARCHIVO musica.mp3 A TU REPOSITORIO DE GITHUB ////// -->
+                  <audio id="bgMusic" src="musica.mp3" preload="metadata"></audio>
+                  <div class="player-controls">
+                    <button class="btn-play-pause" onclick="togglePlayMusic()" id="btnPlayMusic">▶ PLAY</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Calendario Perú -->
+              <div class="widget-box">
+                <div class="widget-title">Fecha Perú</div>
+                <div class="calendar-display">
+                  <div class="cal-day-num" id="calDayNum">--</div>
+                  <div class="cal-day-text" id="calDayText">--</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Columna Centro: GIFs de Anime Aleatorios -->
+            <div class="center-display">
+              <div class="random-gif-box">
+                <img id="randomGifImg" src="https://media.tenor.com/WfU_j-4sQpAAAAAC/azumanga-daioh-osaka.gif" alt="Anime GIF" />
+              </div>
+              <p style="font-size:0.75rem; color:var(--text-muted); font-family:monospace;">
+                [valkyrie.pe // personal archive & textiles]
+              </p>
+            </div>
+
+            <!-- Columna Derecha: Encuesta + Reloj + Buy Me a Coffee -->
+            <div class="inicio-col">
+              
+              <!-- Encuesta -->
+              <div class="widget-box">
+                <div class="widget-title">Encuesta</div>
+                <div class="poll-options" id="pollBox">
+                  <button class="poll-btn" onclick="votePoll('gatos')">🐱 Gatos</button>
+                  <div class="poll-bar" id="barGatos"></div>
+                  <button class="poll-btn" onclick="votePoll('perros')">🐶 Perros</button>
+                  <div class="poll-bar" id="barPerros"></div>
+                </div>
+              </div>
+
+              <!-- Reloj Lima -->
+              <div class="widget-box">
+                <div class="widget-title">Hora Perú</div>
+                <div class="clock-display" id="clockLima">--:--:--</div>
+              </div>
+
+              <!-- Buy Me a Coffee -->
+              <!-- ////// ☕ ACÁ PEGA TU ENLACE DE BUY ME A COFFEE EN EL HREF ////// -->
+              <a href="https://buymeacoffee.com/" target="_blank" class="bmc-btn">
+                ☕ Cómprame un café
+              </a>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 2. PESTAÑA: SOBRE MÍ                       -->
+        <!-- ========================================== -->
+        <section id="tab-sobremi" class="tab-content">
+          <div class="about-layout">
+            <!-- ////// 🖼️ ACÁ PUEDES CAMBIAR LA IMAGEN O DEJARLA ////// -->
+            <div class="about-avatar">[Tu Foto / Avatar]</div>
+            <div class="about-text">
+              <p style="margin-bottom: 12px;">
+                Hola, bienvenido al archivo de <strong>valkyrie.pe</strong>.
+              </p>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">
+                Espacio personal dedicado al archivo de figuras importadas desde Japón, textiles, arte anime y archivo multimedia.
+              </p>
             </div>
           </div>
         </section>
 
-        <!-- 2. FIGURAS -->
+        <!-- ========================================== -->
+        <!-- 3. PESTAÑA: BLOG                           -->
+        <!-- ========================================== -->
+        <section id="tab-blog" class="tab-content">
+          <div class="blog-feed">
+
+            <!-- //////////////////////////////////////////////////////// -->
+            <!-- ////// 📝 ACÁ ESCRIBE TU BLOG (COPIA Y PEGA ESTE BLOQUE) ////// -->
+            <!-- //////////////////////////////////////////////////////// -->
+            <article class="blog-post">
+              <span class="post-timestamp" id="blogCurrentTime">10 OCT 2026 // 10:48 PM</span>
+              <p class="post-body">
+                Configurando la nueva arquitectura de la web. Agregando visores multimedia, tienda y bitácora limpia sin títulos innecesarios.
+              </p>
+            </article>
+            <!-- //////////////////////////////////////////////////////// -->
+
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 4. PESTAÑA: ROPA                           -->
+        <!-- ========================================== -->
+        <section id="tab-ropa" class="tab-content">
+          <div class="items-grid">
+            <div class="card">
+              <div class="card-img-placeholder">[Prenda #01]</div>
+              <div class="card-info">
+                <span class="card-name">Custom Anime Tee #01</span>
+                <span class="card-price">Consultar</span>
+                <a href="https://m.me/61594882152570" target="_blank" class="card-btn">Consultar por Messenger ↗</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 5. PESTAÑA: FIGURAS                        -->
+        <!-- ========================================== -->
         <section id="tab-figuras" class="tab-content">
           <div class="items-grid">
             
@@ -423,7 +693,7 @@
               <div class="card-img-placeholder">[5 Quintillizas Nendoroid]</div>
               <div class="card-info">
                 <span class="card-name">Set Nendoroids Good Smile</span>
-                <span class="card-price">S/. 1,500 (Set x5)</span>
+                <span class="card-price">S/. 1,250 - 1,500</span>
                 <a href="https://m.me/61594882152570" target="_blank" class="card-btn">Pedir por Messenger ↗</a>
               </div>
             </div>
@@ -449,53 +719,23 @@
           </div>
         </section>
 
-        <!-- 3. ROPA -->
-        <section id="tab-ropa" class="tab-content">
-          <div class="items-grid">
-            <div class="card">
-              <div class="card-img-placeholder">[Prenda #01]</div>
-              <div class="card-info">
-                <span class="card-name">Custom Anime Tee #01</span>
-                <span class="card-price">Consultar</span>
-                <a href="https://m.me/61594882152570" target="_blank" class="card-btn">Consultar por Messenger ↗</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 4. ANIME -->
+        <!-- ========================================== -->
+        <!-- 6. PESTAÑA: ANIME (REPRODUCTOR DRIVE)      -->
+        <!-- ========================================== -->
         <section id="tab-anime" class="tab-content">
-          <p style="font-size:0.85rem; color:var(--text-muted); line-height: 1.6;">
-            Directorio de enlaces, bases de datos y archivos multimedia próximamente.
-          </p>
-        </section>
-
-        <!-- 5. BLOG (ACTUALIZACIONES LIMPIAS) -->
-        <section id="tab-blog" class="tab-content">
-          <div class="blog-feed">
-            <article class="blog-post">
-              <span class="post-date">OCTUBRE 2026</span>
-              <p class="post-body">
-                Comenzamos con la llegada de los sets completos de Las Quintillizas traídos con ZenMarket. Cajas en perfecto estado protegidas de origen y listas para entrega en Lima.
-              </p>
-            </article>
+          <div class="media-viewer-container">
+            <!-- ////// 🎥 ACÁ PEGA EL ID DE TU VIDEO DE GOOGLE DRIVE REEMPLAZANDO "TU_ID_DE_VIDEO" ////// -->
+            <iframe src="https://drive.google.com/file/d/TU_ID_DE_VIDEO/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
         </section>
 
-        <!-- 6. CHAT / LIBRO DE VISITAS LIMPIO -->
-        <section id="tab-chat" class="tab-content">
-          <div class="chat-box">
-            <div id="HCB_comment_box" style="color:#f0f0f0;">Cargando mensajes...</div>
-            <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css" />
-            <script type="text/javascript" id="hcb">
-              if(!window.hcb_user){hcb_user={};} 
-              (function(){
-                var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";
-                s.setAttribute("type","text/javascript");
-                s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1%24...&opts=16862&num=10&ts=1");
-                if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);
-              })();
-            </script>
+        <!-- ========================================== -->
+        <!-- 7. PESTAÑA: MANGA (VISOR PDF DRIVE)        -->
+        <!-- ========================================== -->
+        <section id="tab-manga" class="tab-content">
+          <div class="media-viewer-container">
+            <!-- ////// 📖 ACÁ PEGA EL ID DE TU PDF DE GOOGLE DRIVE REEMPLAZANDO "TU_ID_DE_PDF" ////// -->
+            <iframe src="https://drive.google.com/file/d/TU_ID_DE_PDF/preview"></iframe>
           </div>
         </section>
 
@@ -503,8 +743,8 @@
     </div>
   </div>
 
-  <!-- SCRIPT DEL JUEGO: FÍSICAS ÁGILES Y DIFICULTAD QUE ESCALA RÁPIDO -->
   <script>
+    // CAMBIO DE PESTAÑAS
     function openTab(evt, tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
@@ -512,242 +752,74 @@
       evt.currentTarget.classList.add('active');
     }
 
-    const canvas = document.getElementById('gameCanvas');
-    const ctx = canvas.getContext('2d');
-    const overlay = document.getElementById('playOverlay');
-
-    const imgRun = new Image();
-    imgRun.src = 'osaka_run.png';
-
-    const imgJump = new Image();
-    imgJump.src = 'osaka_jump.png';
-
-    let isPlaying = false;
-    let isGameOver = false;
-    let score = 0;
-    let highScore = localStorage.getItem('valkyrie_hi') || 0;
-    
-    // Configuración de velocidad inicial alta y dificultad visible
-    let baseSpeed = 8.5; 
-    let currentSpeed = baseSpeed;
-    let spawnTimer = 0;
-    let nextSpawnDistance = 45;
-
-    // Físicas agresivas (salto con arco rápido, sin flotabilidad)
-    const osaka = {
-      x: 70,
-      y: 145,
-      width: 48,
-      height: 65,
-      dy: 0,
-      jumpForce: -15.5,
-      gravity: 1.15,
-      groundY: 145,
-      isGrounded: true,
+    // 1. RELOJ Y FECHA PERÚ (AMERICA/LIMA)
+    function updatePeruTime() {
+      const now = new Date();
       
-      jump() {
-        if (this.isGrounded) {
-          this.dy = this.jumpForce;
-          this.isGrounded = false;
-        }
-      },
-      update() {
-        this.y += this.dy;
-        if (!this.isGrounded) {
-          this.dy += this.gravity;
-        }
-        if (this.y >= this.groundY) {
-          this.y = this.groundY;
-          this.dy = 0;
-          this.isGrounded = true;
-        }
-      },
-      draw() {
-        const curImg = (!this.isGrounded) ? imgJump : imgRun;
-        if (curImg.complete && curImg.naturalWidth !== 0) {
-          ctx.drawImage(curImg, this.x, this.y, this.width, this.height);
-        } else {
-          ctx.fillStyle = '#000000';
-          ctx.fillRect(this.x, this.y, this.width, this.height);
-        }
-      }
-    };
+      const timeStr = new Intl.DateTimeFormat('es-PE', {
+        timeZone: 'America/Lima',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      }).format(now);
+      document.getElementById('clockLima').innerText = timeStr;
 
-    let obstacles = [];
-
-    class Obstacle {
-      constructor() {
-        this.x = canvas.width;
-        const rand = Math.random();
-        if (rand < 0.35) {
-          // Bloque individual
-          this.width = 18;
-          this.height = 38;
-        } else if (rand < 0.70) {
-          // Bloque doble (ancho, exige saltar justo al borde)
-          this.width = 44;
-          this.height = 38;
-        } else {
-          // Obstáculo alto
-          this.width = 22;
-          this.height = 54;
-        }
-        this.y = (osaka.groundY + osaka.height) - this.height;
-      }
-      update() {
-        this.x -= currentSpeed;
-      }
-      draw() {
-        ctx.fillStyle = '#000000';
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(this.x + 3, this.y + 3, this.width - 6, this.height - 6);
-        ctx.fillStyle = '#000000';
-        ctx.fillRect(this.x + 6, this.y + 6, this.width - 12, this.height - 12);
-      }
+      const dayNum = new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', day: 'numeric' }).format(now);
+      const dayText = new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', weekday: 'short', month: 'short' }).format(now);
+      
+      document.getElementById('calDayNum').innerText = dayNum;
+      document.getElementById('calDayText').innerText = dayText;
     }
+    setInterval(updatePeruTime, 1000);
+    updatePeruTime();
 
-    let groundOffset = 0;
-    function drawGround() {
-      const lineY = osaka.groundY + osaka.height;
-      ctx.strokeStyle = '#000000';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(0, lineY);
-      ctx.lineTo(canvas.width, lineY);
-      ctx.stroke();
+    // 2. REPRODUCTOR DE MÚSICA
+    const bgMusic = document.getElementById('bgMusic');
+    const btnPlayMusic = document.getElementById('btnPlayMusic');
 
-      groundOffset = (groundOffset + currentSpeed) % 20;
-      ctx.fillStyle = '#555555';
-      for (let x = -groundOffset; x < canvas.width; x += 20) {
-        ctx.fillRect(x, lineY + 6, 8, 2);
-      }
-    }
-
-    function drawScore() {
-      ctx.fillStyle = '#000000';
-      ctx.font = 'bold 14px "Courier New", monospace';
-      ctx.textAlign = 'right';
-      const sPad = String(Math.floor(score)).padStart(5, '0');
-      const hiPad = String(Math.floor(highScore)).padStart(5, '0');
-      ctx.fillText(`HI ${hiPad}  ${sPad}`, canvas.width - 18, 28);
-    }
-
-    function triggerAction() {
-      if (!isPlaying) startGame();
-      else if (isGameOver) restartGame();
-      else osaka.jump();
-    }
-
-    function startGame() {
-      overlay.classList.add('hidden');
-      isPlaying = true;
-      isGameOver = false;
-      score = 0;
-      currentSpeed = baseSpeed;
-      obstacles = [];
-      spawnTimer = 0;
-      nextSpawnDistance = 40;
-      loop();
-    }
-
-    function restartGame() {
-      isGameOver = false;
-      score = 0;
-      currentSpeed = baseSpeed;
-      obstacles = [];
-      spawnTimer = 0;
-      nextSpawnDistance = 40;
-      osaka.y = osaka.groundY;
-      osaka.dy = 0;
-      osaka.isGrounded = true;
-      loop();
-    }
-
-    window.addEventListener('keydown', (e) => {
-      if (e.code === 'Space' || e.code === 'ArrowUp') {
-        e.preventDefault();
-        triggerAction();
-      }
-    });
-
-    canvas.addEventListener('pointerdown', (e) => {
-      e.preventDefault();
-      triggerAction();
-    });
-
-    function loop() {
-      if (!isPlaying) return;
-
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      drawGround();
-      osaka.update();
-      osaka.draw();
-
-      if (!isGameOver) {
-        score += 0.25;
-
-        // Aceleración perceptible cada fracción de tiempo
-        currentSpeed = baseSpeed + (score * 0.006);
-
-        spawnTimer++;
-        if (spawnTimer >= nextSpawnDistance) {
-          obstacles.push(new Obstacle());
-          spawnTimer = 0;
-          
-          // Distancia entre obstáculos reducida dinámicamente con la velocidad
-          const minGap = Math.max(25, 55 - Math.floor(currentSpeed * 2));
-          const maxGap = Math.max(45, 90 - Math.floor(currentSpeed * 2));
-          nextSpawnDistance = Math.floor(Math.random() * (maxGap - minGap)) + minGap;
-        }
-
-        for (let i = obstacles.length - 1; i >= 0; i--) {
-          const obs = obstacles[i];
-          obs.update();
-          obs.draw();
-
-          const padX = 12;
-          const padY = 8;
-          if (
-            osaka.x + padX < obs.x + obs.width &&
-            osaka.x + osaka.width - padX > obs.x &&
-            osaka.y + padY < obs.y + obs.height &&
-            osaka.y + osaka.height > obs.y
-          ) {
-            isGameOver = true;
-            if (score > highScore) {
-              highScore = Math.floor(score);
-              localStorage.setItem('valkyrie_hi', highScore);
-            }
-          }
-
-          if (obs.x + obs.width < 0) {
-            obstacles.splice(i, 1);
-          }
-        }
+    function togglePlayMusic() {
+      if (bgMusic.paused) {
+        bgMusic.play().then(() => {
+          btnPlayMusic.innerText = '❚❚ PAUSA';
+        }).catch(() => {
+          alert('Para reproducir música, asegúrate de haber subido el archivo "musica.mp3" a tu GitHub.');
+        });
       } else {
-        obstacles.forEach(o => o.draw());
-
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.fillStyle = '#000000';
-        ctx.font = 'bold 20px -apple-system, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('GAME OVER', canvas.width / 2, 110);
-
-        ctx.font = '13px "Courier New", monospace';
-        ctx.fillText('PULSA ESPACIO O TOCA PARA REINTENTAR', canvas.width / 2, 140);
-      }
-
-      drawScore();
-
-      if (!isGameOver) {
-        requestAnimationFrame(loop);
+        bgMusic.pause();
+        btnPlayMusic.innerText = '▶ PLAY';
       }
     }
+
+    // 3. ENCUESTA INTERACTIVA
+    let votes = { gatos: 12, perros: 9 };
+    function votePoll(option) {
+      votes[option]++;
+      const total = votes.gatos + votes.perros;
+      const pctGatos = Math.round((votes.gatos / total) * 100);
+      const pctPerros = Math.round((votes.perros / total) * 100);
+
+      const pollBox = document.getElementById('pollBox');
+      pollBox.innerHTML = `
+        <div style="font-size:0.8rem; margin-bottom:4px;">🐱 Gatos: <strong>${pctGatos}%</strong> (${votes.gatos})</div>
+        <div style="width:100%; height:6px; background:#333; border-radius:3px; margin-bottom:10px;">
+          <div style="width:${pctGatos}%; height:100%; background:var(--accent-orange); border-radius:3px;"></div>
+        </div>
+        <div style="font-size:0.8rem; margin-bottom:4px;">🐶 Perros: <strong>${pctPerros}%</strong> (${votes.perros})</div>
+        <div style="width:100%; height:6px; background:#333; border-radius:3px;">
+          <div style="width:${pctPerros}%; height:100%; background:#4facfe; border-radius:3px;"></div>
+        </div>
+      `;
+    }
+
+    // 4. ROTADOR DE GIFS ALEATORIOS
+    const gifList = [
+      "https://media.tenor.com/WfU_j-4sQpAAAAAC/azumanga-daioh-osaka.gif",
+      "https://media.tenor.com/4925-gVn_yAAAAAC/azumanga-daioh.gif",
+      "https://media.tenor.com/J3-u23xX_kIAAAAC/osaka-azumanga.gif"
+    ];
+    const randIndex = Math.floor(Math.random() * gifList.length);
+    document.getElementById('randomGifImg').src = gifList[randIndex];
   </script>
 </body>
 </html>
