@@ -47,7 +47,7 @@
       }
     }
 
-    /* VENTANA PRINCIPAL MÁS AMPLIA */
+    /* VENTANA PRINCIPAL */
     .aero-window {
       width: 100%;
       max-width: 1160px;
@@ -63,7 +63,7 @@
       overflow: hidden;
     }
 
-    /* ENCABEZADO FRUTIGER AERO GLOSSY (IDÉNTICO AL ARCHIVE) */
+    /* ENCABEZADO GLOSSY */
     .window-header {
       background: linear-gradient(180deg, rgba(58, 44, 34, 0.82) 0%, rgba(28, 20, 16, 0.90) 48%, rgba(14, 11, 9, 0.96) 100%);
       border-bottom: 2px solid rgba(255, 157, 66, 0.35);
@@ -114,7 +114,7 @@
       background: var(--glass-inner);
     }
 
-    /* SIDEBAR CON SUBTÍTULOS ESTILO AERO */
+    /* SIDEBAR */
     .sidebar {
       width: 195px;
       background: rgba(12, 14, 18, 0.45);
@@ -164,7 +164,6 @@
       color: #fff;
     }
 
-    /* BOTÓN ACTIVO CON GLOW NARANJA */
     .nav-btn.active {
       background: linear-gradient(180deg, rgba(255, 157, 66, 0.22) 0%, rgba(32, 22, 16, 0.75) 100%);
       border-color: var(--aero-glow);
@@ -194,7 +193,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* --- PESTAÑA: INICIO --- */
+    /* --- LAYOUT INICIO --- */
     .inicio-grid {
       display: grid;
       grid-template-columns: 240px 1fr 240px;
@@ -228,7 +227,7 @@
       padding-bottom: 4px;
     }
 
-    /* REPRODUCTOR PLAYLIST COMPLETO */
+    /* REPRODUCTOR CON TEXTO COMPLETO MULTILÍNEA */
     .music-player {
       display: flex;
       flex-direction: column;
@@ -238,13 +237,16 @@
       font-size: 0.78rem;
       color: #fff;
       font-family: monospace;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.35;
       background: rgba(0,0,0,0.4);
-      padding: 6px;
+      padding: 8px;
       border-radius: 4px;
       border: 1px solid rgba(255,255,255,0.08);
+      min-height: 48px;
+      display: flex;
+      align-items: center;
     }
     .player-controls {
       display: flex;
@@ -286,7 +288,7 @@
       letter-spacing: 1px;
     }
 
-    /* RELOJ LIMA */
+    /* RELOJ */
     .clock-display {
       font-family: "Courier New", monospace;
       font-size: 1.35rem;
@@ -299,26 +301,35 @@
       border: 1px solid rgba(255,255,255,0.08);
     }
 
-    /* ENCUESTA */
+    /* ENCUESTA CON 6 OPCIONES Y ADOPCIÓN RESPONSABLE */
     .poll-options {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
     .poll-btn {
       width: 100%;
-      padding: 7px;
+      padding: 6px 8px;
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.15);
       border-radius: 4px;
       color: #fff;
-      font-size: 0.8rem;
+      font-size: 0.76rem;
       font-weight: 600;
       text-align: left;
       transition: all 0.15s ease;
     }
     .poll-btn:hover {
       background: rgba(255,255,255,0.18);
+    }
+    .poll-awareness {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.70rem;
+      line-height: 1.4;
+      color: var(--text-muted);
+      font-style: italic;
     }
 
     /* BUY ME A COFFEE */
@@ -345,7 +356,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
       text-align: center;
     }
     .random-gif-box {
@@ -365,66 +376,14 @@
       height: 100%;
       object-fit: cover;
     }
-
-    /* --- PESTAÑA: SOBRE MÍ --- */
-    .about-layout {
-      display: grid;
-      grid-template-columns: 210px 1fr;
-      gap: 22px;
-      background: var(--glass-card);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 8px;
-      padding: 22px;
-    }
-    .about-avatar {
-      width: 100%;
-      height: 220px;
-      background: rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .gif-copyright {
+      font-size: 0.72rem;
       color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-    .about-text {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: #e0e4ec;
-    }
-
-    /* --- PESTAÑA: BLOG --- */
-    .blog-feed {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .blog-post {
-      background: var(--glass-card);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 8px;
-      padding: 16px 20px;
-      backdrop-filter: blur(4px);
-    }
-    .post-timestamp {
-      display: inline-block;
-      font-size: 0.76rem;
       font-family: monospace;
-      color: var(--aero-glow);
-      font-weight: bold;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 3px;
-    }
-    .post-body {
-      font-size: 0.88rem;
-      line-height: 1.55;
-      color: #e0e4ec;
+      letter-spacing: 0.5px;
     }
 
-    /* --- TIENDA (ROPA / FIGURAS) --- */
+    /* TIENDA / FIGURAS */
     .items-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -486,44 +445,79 @@
       color: #000000;
     }
 
-    /* --- VISOR GOOGLE DRIVE --- */
-    .drive-container {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .drive-topbar {
-      display: flex;
-      justify-content: flex-end;
-    }
-    .btn-drive-open {
-      padding: 6px 14px;
-      background: linear-gradient(180deg, rgba(255, 157, 66, 0.25) 0%, rgba(30, 22, 16, 0.7) 100%);
-      border: 1px solid var(--aero-glow);
-      color: #fff;
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 5px;
-      box-shadow: 0 0 8px var(--aero-glow-soft);
-      transition: all 0.15s ease;
-    }
-    .btn-drive-open:hover {
-      background: var(--aero-glow);
-      color: #000;
-    }
+    /* VISOR MULTIMEDIA PARA DRIVE (PREVIEW EN PÁGINA) */
     .media-viewer-container {
       width: 100%;
-      height: 520px;
-      background: rgba(0, 0, 0, 0.65);
+      height: 560px;
+      background: rgba(0, 0, 0, 0.75);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 8px;
       overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
     }
     .media-viewer-container iframe {
       width: 100%;
       height: 100%;
       border: none;
+    }
+
+    /* JUEGO (DEMO) */
+    .game-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    canvas {
+      width: 100%;
+      height: 250px;
+      background: #ffffff;
+      border: 2px solid rgba(0, 0, 0, 0.8);
+      border-radius: 8px;
+      display: block;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      touch-action: none;
+    }
+    .play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 8px;
+      backdrop-filter: blur(2px);
+    }
+    .play-overlay.hidden {
+      display: none;
+    }
+    .play-btn-big {
+      background: linear-gradient(180deg, #222 0%, #000 100%);
+      border: 1px solid #444;
+      color: #ffffff;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+      transition: all 0.15s ease;
+    }
+    .play-btn-big:hover {
+      transform: scale(1.05);
+      background: #000;
+    }
+    .play-btn-big svg {
+      width: 18px;
+      height: 18px;
+      fill: #ffffff;
     }
 
     /* RESPONSIVE */
@@ -542,9 +536,6 @@
         display: none;
       }
       .inicio-grid {
-        grid-template-columns: 1fr;
-      }
-      .about-layout {
         grid-template-columns: 1fr;
       }
       .content-area {
@@ -568,21 +559,20 @@
 
     <div class="window-body">
       
-      <!-- MENÚ LATERAL CON SUBTÍTULOS -->
+      <!-- MENÚ LATERAL CON DEMO ABAJO DE MANGA -->
       <nav class="sidebar">
         <button class="nav-btn active" onclick="openTab(event, 'tab-inicio')">Inicio</button>
         <button class="nav-btn" onclick="openTab(event, 'tab-sobremi')">Sobre mí</button>
         <button class="nav-btn" onclick="openTab(event, 'tab-blog')">Blog</button>
         
-        <!-- SUBTÍTULO NO CLICKEABLE -->
         <div class="nav-category">Tienda</div>
         <button class="nav-btn sub-item" onclick="openTab(event, 'tab-ropa')">Ropa</button>
         <button class="nav-btn sub-item" onclick="openTab(event, 'tab-figuras')">Figuras</button>
         
-        <!-- SUBTÍTULO NO CLICKEABLE -->
         <div class="nav-category">Azumanga daioh</div>
         <button class="nav-btn sub-item" onclick="openTab(event, 'tab-anime')">Anime</button>
         <button class="nav-btn sub-item" onclick="openTab(event, 'tab-manga')">Manga</button>
+        <button class="nav-btn sub-item" onclick="openTab(event, 'tab-demo')">Demo</button>
       </nav>
 
       <main class="content-area">
@@ -596,7 +586,7 @@
             <!-- Columna Izquierda: Reproductor + Calendario -->
             <div class="inicio-col">
               
-              <!-- Reproductor con Playlist de 5 canciones -->
+              <!-- Reproductor con Nombres Completos -->
               <div class="widget-box">
                 <div class="widget-title">Audio Player</div>
                 <div class="music-player">
@@ -610,9 +600,9 @@
                 </div>
               </div>
 
-              <!-- Calendario Perú -->
+              <!-- Calendario -->
               <div class="widget-box">
-                <div class="widget-title">Fecha Perú</div>
+                <div class="widget-title">Fecha 🇵🇪</div>
                 <div class="calendar-display">
                   <div class="cal-day-num" id="calDayNum">--</div>
                   <div class="cal-day-text" id="calDayText">--</div>
@@ -621,36 +611,42 @@
 
             </div>
 
-            <!-- Columna Centro: GIFs Locales Aleatorios -->
+            <!-- Columna Centro: GIFs con Copyright abajo -->
             <div class="center-display">
               <div class="random-gif-box">
                 <img id="randomGifImg" src="gif1.gif" alt="Anime GIF" onerror="this.src='https://media.tenor.com/WfU_j-4sQpAAAAAC/azumanga-daioh-osaka.gif'" />
               </div>
-              <p style="font-size:0.75rem; color:var(--text-muted); font-family:monospace;">
-                [valkyrie.pe // personal archive & textiles]
-              </p>
+              <div class="gif-copyright">
+                [ © valkyrie.pe and vale_ota ]
+              </div>
             </div>
 
-            <!-- Columna Derecha: Encuesta + Reloj + Buy Me a Coffee -->
+            <!-- Columna Derecha: Encuesta + Hora + Buy Me a Coffee -->
             <div class="inicio-col">
               
               <!-- Encuesta -->
               <div class="widget-box">
-                <div class="widget-title">Encuesta</div>
+                <div class="widget-title">¿Qué mascota tienes?</div>
                 <div class="poll-options" id="pollBox">
-                  <button class="poll-btn" onclick="votePoll('gatos')">🐱 Gatos</button>
-                  <button class="poll-btn" onclick="votePoll('perros')">🐶 Perros</button>
+                  <button class="poll-btn" onclick="votePoll('gato')">🐱 Gato</button>
+                  <button class="poll-btn" onclick="votePoll('perro')">🐶 Perro</button>
+                  <button class="poll-btn" onclick="votePoll('hamster')">🐹 Hámster</button>
+                  <button class="poll-btn" onclick="votePoll('roedor')">🐭 Otro roedor</button>
+                  <button class="poll-btn" onclick="votePoll('ave')">🦜 Una ave</button>
+                  <button class="poll-btn" onclick="votePoll('otro')">✨ Otro...</button>
+                </div>
+                <div class="poll-awareness">
+                  Antes de llevar un animalito a tu casa, recuerda que ellos no son un objeto negociable, así que no pagues por uno y denuncia a quien lo vende. ^^
                 </div>
               </div>
 
-              <!-- Reloj Lima -->
+              <!-- Reloj -->
               <div class="widget-box">
-                <div class="widget-title">Hora Perú</div>
+                <div class="widget-title">Hora 🇵🇪</div>
                 <div class="clock-display" id="clockLima">--:--:--</div>
               </div>
 
               <!-- Buy Me a Coffee -->
-              <!-- ////// ☕ ACÁ PEGA TU ENLACE DE BUY ME A COFFEE ////// -->
               <a href="https://buymeacoffee.com/" target="_blank" class="bmc-btn">
                 ☕ Cómprame un café
               </a>
@@ -661,55 +657,25 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- 2. PESTAÑA: SOBRE MÍ                       -->
+        <!-- 2. PESTAÑA: SOBRE MÍ (LIMPIO)              -->
         <!-- ========================================== -->
         <section id="tab-sobremi" class="tab-content">
-          <div class="about-layout">
-            <div class="about-avatar">[Tu Foto / Avatar]</div>
-            <div class="about-text">
-              <p style="margin-bottom: 12px;">
-                Hola, bienvenido al archivo de <strong>valkyrie.pe</strong>.
-              </p>
-              <p style="color: var(--text-muted); font-size: 0.85rem;">
-                Espacio personal dedicado al archivo de figuras importadas desde Japón, textiles, arte anime y archivo multimedia.
-              </p>
-            </div>
-          </div>
+          <!-- Espacio reservado para cuando decidas qué colocar -->
         </section>
 
         <!-- ========================================== -->
-        <!-- 3. PESTAÑA: BLOG                           -->
+        <!-- 3. PESTAÑA: BLOG (LIMPIO)                  -->
         <!-- ========================================== -->
         <section id="tab-blog" class="tab-content">
-          <div class="blog-feed">
-
-            <!-- //////////////////////////////////////////////////////// -->
-            <!-- ////// 📝 ACÁ ESCRIBE TU BLOG (COPIA Y PEGA ESTE BLOQUE) ////// -->
-            <!-- //////////////////////////////////////////////////////// -->
-            <article class="blog-post">
-              <span class="post-timestamp">11 OCT 2026 // 08:49 PM</span>
-              <p class="post-body">
-                Actualizando la web con el nuevo diseño Frutiger Aero, visores de Drive para anime y manga, y reproductor con playlist.
-              </p>
-            </article>
-            <!-- //////////////////////////////////////////////////////// -->
-
-          </div>
+          <!-- Espacio reservado para cuando decidas qué colocar -->
         </section>
 
         <!-- ========================================== -->
         <!-- 4. PESTAÑA: ROPA                           -->
         <!-- ========================================== -->
         <section id="tab-ropa" class="tab-content">
-          <div class="items-grid">
-            <div class="card">
-              <div class="card-img-placeholder">[Prenda #01]</div>
-              <div class="card-info">
-                <span class="card-name">Custom Anime Tee #01</span>
-                <span class="card-price">Consultar</span>
-                <a href="https://m.me/61594882152570" target="_blank" class="card-btn">Consultar por Messenger ↗</a>
-              </div>
-            </div>
+          <div style="text-align:center; padding: 100px 0; color:var(--text-muted); font-size:1.1rem; letter-spacing:2px; text-transform:uppercase;">
+            Próximamente
           </div>
         </section>
 
@@ -750,33 +716,36 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- 6. PESTAÑA: ANIME (AZUMANGA DAIOH)         -->
+        <!-- 6. PESTAÑA: ANIME (REPRODUCTOR EN VIVO)    -->
         <!-- ========================================== -->
         <section id="tab-anime" class="tab-content">
-          <div class="drive-container">
-            <div class="drive-topbar">
-              <a href="https://drive.google.com/drive/folders/1YCz_lp9gFqyDZhw0LrxFJSSZnq7Nbv-K?usp=sharing" target="_blank" class="btn-drive-open">
-                Abrir carpeta en Google Drive ↗
-              </a>
-            </div>
-            <div class="media-viewer-container">
-              <iframe src="https://drive.google.com/embeddedfolderview?id=1YCz_lp9gFqyDZhw0LrxFJSSZnq7Nbv-K#grid" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
+          <div class="media-viewer-container">
+            <iframe src="https://drive.google.com/file/d/12ZOmPXogno79deR1Q8ONr1Zt7pLCx7is/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
         </section>
 
         <!-- ========================================== -->
-        <!-- 7. PESTAÑA: MANGA (AZUMANGA DAIOH)         -->
+        <!-- 7. PESTAÑA: MANGA (LECTOR EN VIVO)         -->
         <!-- ========================================== -->
         <section id="tab-manga" class="tab-content">
-          <div class="drive-container">
-            <div class="drive-topbar">
-              <a href="https://drive.google.com/drive/folders/1Gwm0-pdc6mkWe1-vvyz_Kn182wM1M9Uk?usp=sharing" target="_blank" class="btn-drive-open">
-                Abrir carpeta en Google Drive ↗
-              </a>
-            </div>
-            <div class="media-viewer-container">
-              <iframe src="https://drive.google.com/embeddedfolderview?id=1Gwm0-pdc6mkWe1-vvyz_Kn182wM1M9Uk#grid" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          <div class="media-viewer-container">
+            <iframe src="https://drive.google.com/file/d/16TaxTpoZWPEJniH3GTmeytW8FKvy4eA8/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 8. PESTAÑA: DEMO (JUEGO ÚLTIMA VERSIÓN)     -->
+        <!-- ========================================== -->
+        <section id="tab-demo" class="tab-content">
+          <div class="game-wrapper">
+            <canvas id="gameCanvas" width="760" height="250"></canvas>
+            
+            <div id="playOverlay" class="play-overlay">
+              <button class="play-btn-big" onclick="startGame()">
+                <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                PLAY
+              </button>
+              <p style="font-size:0.75rem; color:#333; margin-top:12px; font-weight:600;">[ESPACIO / TOCAR] para saltar</p>
             </div>
           </div>
         </section>
@@ -794,7 +763,7 @@
       evt.currentTarget.classList.add('active');
     }
 
-    // 1. RELOJ Y FECHA PERÚ (AMERICA/LIMA)
+    // 1. RELOJ Y FECHA PERÚ
     function updatePeruTime() {
       const now = new Date();
       
@@ -843,7 +812,7 @@
         bgMusic.play().then(() => {
           btnPlayMusic.innerText = '❚❚ PAUSA';
         }).catch(() => {
-          alert('Para reproducir música, asegúrate de haber subido el archivo "' + playlist[currentTrackIdx].file + '" a tu repositorio de GitHub.');
+          alert('Para reproducir música, asegúrate de haber subido el archivo "' + playlist[currentTrackIdx].file + '" a tu GitHub.');
         });
       } else {
         bgMusic.pause();
@@ -869,30 +838,284 @@
 
     bgMusic.addEventListener('ended', nextTrack);
 
-    // 3. ROTADOR DE GIFS ALEATORIOS (gif1.gif a gif4.gif)
+    // 3. ROTADOR DE GIFS ALEATORIOS
     const localGifs = ['gif1.gif', 'gif2.gif', 'gif3.gif', 'gif4.gif'];
     const selectedGif = localGifs[Math.floor(Math.random() * localGifs.length)];
     document.getElementById('randomGifImg').src = selectedGif;
 
-    // 4. ENCUESTA INTERACTIVA
-    let votes = { gatos: 12, perros: 9 };
+    // 4. ENCUESTA INTERACTIVA DE MASCOTAS
+    let petVotes = {
+      gato: 16,
+      perro: 12,
+      hamster: 4,
+      roedor: 2,
+      ave: 3,
+      otro: 2
+    };
+
+    const petLabels = {
+      gato: "🐱 Gato",
+      perro: "🐶 Perro",
+      hamster: "🐹 Hámster",
+      roedor: "🐭 Otro roedor",
+      ave: "🦜 Una ave",
+      otro: "✨ Otro..."
+    };
+
     function votePoll(option) {
-      votes[option]++;
-      const total = votes.gatos + votes.perros;
-      const pctGatos = Math.round((votes.gatos / total) * 100);
-      const pctPerros = Math.round((votes.perros / total) * 100);
+      petVotes[option]++;
+      let total = 0;
+      for (let k in petVotes) total += petVotes[k];
 
       const pollBox = document.getElementById('pollBox');
-      pollBox.innerHTML = `
-        <div style="font-size:0.8rem; margin-bottom:4px;">🐱 Gatos: <strong>${pctGatos}%</strong> (${votes.gatos})</div>
-        <div style="width:100%; height:6px; background:#333; border-radius:3px; margin-bottom:10px;">
-          <div style="width:${pctGatos}%; height:100%; background:var(--aero-glow); border-radius:3px;"></div>
-        </div>
-        <div style="font-size:0.8rem; margin-bottom:4px;">🐶 Perros: <strong>${pctPerros}%</strong> (${votes.perros})</div>
-        <div style="width:100%; height:6px; background:#333; border-radius:3px;">
-          <div style="width:${pctPerros}%; height:100%; background:#4facfe; border-radius:3px;"></div>
-        </div>
-      `;
+      let html = '';
+      for (let k in petVotes) {
+        const pct = Math.round((petVotes[k] / total) * 100);
+        html += `
+          <div style="font-size:0.75rem; margin-top:4px; display:flex; justify-content:space-between;">
+            <span>${petLabels[k]}</span>
+            <span><strong>${pct}%</strong> (${petVotes[k]})</span>
+          </div>
+          <div style="width:100%; height:5px; background:rgba(0,0,0,0.5); border-radius:3px; margin-bottom:4px;">
+            <div style="width:${pct}%; height:100%; background:var(--aero-glow); border-radius:3px;"></div>
+          </div>
+        `;
+      }
+      pollBox.innerHTML = html;
+    }
+
+    // ==========================================
+    // 5. MOTOR DEL JUEGO DEMO (FÍSICAS DINOSAURIO)
+    // ==========================================
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const overlay = document.getElementById('playOverlay');
+
+    const imgRun = new Image();
+    imgRun.src = 'osaka_run.png';
+
+    const imgJump = new Image();
+    imgJump.src = 'osaka_jump.png';
+
+    let isPlaying = false;
+    let isGameOver = false;
+    let score = 0;
+    let highScore = localStorage.getItem('valkyrie_hi') || 0;
+    
+    let baseSpeed = 8.5; 
+    let currentSpeed = baseSpeed;
+    let spawnTimer = 0;
+    let nextSpawnDistance = 45;
+
+    const osaka = {
+      x: 70,
+      y: 145,
+      width: 48,
+      height: 65,
+      dy: 0,
+      jumpForce: -15.5,
+      gravity: 1.15,
+      groundY: 145,
+      isGrounded: true,
+      
+      jump() {
+        if (this.isGrounded) {
+          this.dy = this.jumpForce;
+          this.isGrounded = false;
+        }
+      },
+      update() {
+        this.y += this.dy;
+        if (!this.isGrounded) {
+          this.dy += this.gravity;
+        }
+        if (this.y >= this.groundY) {
+          this.y = this.groundY;
+          this.dy = 0;
+          this.isGrounded = true;
+        }
+      },
+      draw() {
+        const curImg = (!this.isGrounded) ? imgJump : imgRun;
+        if (curImg.complete && curImg.naturalWidth !== 0) {
+          ctx.drawImage(curImg, this.x, this.y, this.width, this.height);
+        } else {
+          ctx.fillStyle = '#000000';
+          ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+      }
+    };
+
+    let obstacles = [];
+
+    class Obstacle {
+      constructor() {
+        this.x = canvas.width;
+        const rand = Math.random();
+        if (rand < 0.35) {
+          this.width = 18;
+          this.height = 38;
+        } else if (rand < 0.70) {
+          this.width = 44;
+          this.height = 38;
+        } else {
+          this.width = 22;
+          this.height = 54;
+        }
+        this.y = (osaka.groundY + osaka.height) - this.height;
+      }
+      update() {
+        this.x -= currentSpeed;
+      }
+      draw() {
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(this.x + 3, this.y + 3, this.width - 6, this.height - 6);
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(this.x + 6, this.y + 6, this.width - 12, this.height - 12);
+      }
+    }
+
+    let groundOffset = 0;
+    function drawGround() {
+      const lineY = osaka.groundY + osaka.height;
+      ctx.strokeStyle = '#000000';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0, lineY);
+      ctx.lineTo(canvas.width, lineY);
+      ctx.stroke();
+
+      groundOffset = (groundOffset + currentSpeed) % 20;
+      ctx.fillStyle = '#555555';
+      for (let x = -groundOffset; x < canvas.width; x += 20) {
+        ctx.fillRect(x, lineY + 6, 8, 2);
+      }
+    }
+
+    function drawScore() {
+      ctx.fillStyle = '#000000';
+      ctx.font = 'bold 14px "Courier New", monospace';
+      ctx.textAlign = 'right';
+      const sPad = String(Math.floor(score)).padStart(5, '0');
+      const hiPad = String(Math.floor(highScore)).padStart(5, '0');
+      ctx.fillText(`HI ${hiPad}  ${sPad}`, canvas.width - 18, 28);
+    }
+
+    function triggerAction() {
+      if (!isPlaying) startGame();
+      else if (isGameOver) restartGame();
+      else osaka.jump();
+    }
+
+    function startGame() {
+      overlay.classList.add('hidden');
+      isPlaying = true;
+      isGameOver = false;
+      score = 0;
+      currentSpeed = baseSpeed;
+      obstacles = [];
+      spawnTimer = 0;
+      nextSpawnDistance = 40;
+      loop();
+    }
+
+    function restartGame() {
+      isGameOver = false;
+      score = 0;
+      currentSpeed = baseSpeed;
+      obstacles = [];
+      spawnTimer = 0;
+      nextSpawnDistance = 40;
+      osaka.y = osaka.groundY;
+      osaka.dy = 0;
+      osaka.isGrounded = true;
+      loop();
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'Space' || e.code === 'ArrowUp') {
+        const demoTab = document.getElementById('tab-demo');
+        if (demoTab && demoTab.classList.contains('active')) {
+          e.preventDefault();
+          triggerAction();
+        }
+      }
+    });
+
+    canvas.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      triggerAction();
+    });
+
+    function loop() {
+      if (!isPlaying) return;
+
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      drawGround();
+      osaka.update();
+      osaka.draw();
+
+      if (!isGameOver) {
+        score += 0.25;
+        currentSpeed = baseSpeed + (score * 0.006);
+
+        spawnTimer++;
+        if (spawnTimer >= nextSpawnDistance) {
+          obstacles.push(new Obstacle());
+          spawnTimer = 0;
+          const minGap = Math.max(25, 55 - Math.floor(currentSpeed * 2));
+          const maxGap = Math.max(45, 90 - Math.floor(currentSpeed * 2));
+          nextSpawnDistance = Math.floor(Math.random() * (maxGap - minGap)) + minGap;
+        }
+
+        for (let i = obstacles.length - 1; i >= 0; i--) {
+          const obs = obstacles[i];
+          obs.update();
+          obs.draw();
+
+          const padX = 12;
+          const padY = 8;
+          if (
+            osaka.x + padX < obs.x + obs.width &&
+            osaka.x + osaka.width - padX > obs.x &&
+            osaka.y + padY < obs.y + obs.height &&
+            osaka.y + osaka.height > obs.y
+          ) {
+            isGameOver = true;
+            if (score > highScore) {
+              highScore = Math.floor(score);
+              localStorage.setItem('valkyrie_hi', highScore);
+            }
+          }
+
+          if (obs.x + obs.width < 0) {
+            obstacles.splice(i, 1);
+          }
+        }
+      } else {
+        obstacles.forEach(o => o.draw());
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#000000';
+        ctx.font = 'bold 20px -apple-system, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('GAME OVER', canvas.width / 2, 110);
+
+        ctx.font = '13px "Courier New", monospace';
+        ctx.fillText('PULSA ESPACIO O TOCA PARA REINTENTAR', canvas.width / 2, 140);
+      }
+
+      drawScore();
+
+      if (!isGameOver) {
+        requestAnimationFrame(loop);
+      }
     }
   </script>
 </body>
