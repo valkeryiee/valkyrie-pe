@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>valkyrie.pe</title>
   <style>
-    /* --- PALETA Y ACABADOS FRUTIGER AERO ARCHIVE --- */
+    /* --- PALETA Y ACABADOS FRUTIGER AERO --- */
     :root {
       --glass-window: rgba(14, 16, 20, 0.40);
       --glass-inner: rgba(8, 10, 14, 0.22);
@@ -227,7 +227,7 @@
       padding-bottom: 4px;
     }
 
-    /* REPRODUCTOR CON TEXTO COMPLETO MULTILÍNEA */
+    /* REPRODUCTOR MÚSICA */
     .music-player {
       display: flex;
       flex-direction: column;
@@ -253,14 +253,17 @@
       gap: 6px;
     }
     .btn-ctrl {
-      padding: 6px 10px;
+      padding: 8px 12px;
       background: linear-gradient(180deg, #2c3038 0%, #15181e 100%);
       border: 1px solid #444a56;
       color: #fff;
       border-radius: 4px;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       font-weight: bold;
       transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .btn-ctrl:hover {
       background: #3d4350;
@@ -268,9 +271,10 @@
     }
     .btn-play-pause {
       flex: 1;
+      font-size: 1rem;
     }
 
-    /* CALENDARIO */
+    /* CALENDARIO FECHA */
     .calendar-display {
       text-align: center;
       padding: 6px 0;
@@ -288,20 +292,29 @@
       letter-spacing: 1px;
     }
 
-    /* RELOJ */
-    .clock-display {
+    /* RELOJ CIRCULAR ANALÓGICO */
+    .clock-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    canvas#analogClock {
+      display: block;
+      margin: 0 auto;
+    }
+    .clock-digital {
       font-family: "Courier New", monospace;
-      font-size: 1.35rem;
+      font-size: 0.95rem;
       font-weight: bold;
-      text-align: center;
       color: #fff;
-      background: rgba(0,0,0,0.4);
-      padding: 8px;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 4px 10px;
       border-radius: 4px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    /* ENCUESTA CON 6 OPCIONES Y ADOPCIÓN RESPONSABLE */
+    /* ENCUESTA */
     .poll-options {
       display: flex;
       flex-direction: column;
@@ -376,11 +389,21 @@
       height: 100%;
       object-fit: cover;
     }
-    .gif-copyright {
-      font-size: 0.72rem;
+    .center-subtitle {
+      font-size: 0.75rem;
       color: var(--text-muted);
       font-family: monospace;
-      letter-spacing: 0.5px;
+    }
+
+    /* COPYRIGHT INFERIOR */
+    .page-footer {
+      margin-top: 18px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: monospace;
+      letter-spacing: 0.8px;
+      text-align: center;
+      opacity: 0.85;
     }
 
     /* TIENDA / FIGURAS */
@@ -445,10 +468,69 @@
       color: #000000;
     }
 
-    /* VISOR MULTIMEDIA PARA DRIVE (PREVIEW EN PÁGINA) */
+    /* VISOR MULTIMEDIA & SELECTORES */
+    .media-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .media-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.4);
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .media-title-current {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--aero-glow);
+    }
+    .btn-drive-open {
+      padding: 6px 12px;
+      background: linear-gradient(180deg, rgba(255, 157, 66, 0.25) 0%, rgba(30, 22, 16, 0.7) 100%);
+      border: 1px solid var(--aero-glow);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: all 0.15s ease;
+    }
+    .btn-drive-open:hover {
+      background: var(--aero-glow);
+      color: #000;
+    }
+    .selector-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .sel-btn {
+      padding: 6px 12px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 5px;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .sel-btn:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .sel-btn.active {
+      background: var(--aero-glow);
+      color: #000;
+      border-color: var(--aero-glow);
+    }
     .media-viewer-container {
       width: 100%;
-      height: 560px;
+      height: 520px;
       background: rgba(0, 0, 0, 0.75);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 8px;
@@ -461,6 +543,37 @@
       border: none;
     }
 
+    /* CHAT / LIBRO DE VISITAS TRANSLÚCIDO */
+    .chat-box {
+      width: 100%;
+      min-height: 480px;
+      background: var(--glass-card);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 16px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+    #HCB_comment_box #hcb_form textarea {
+      background: rgba(0, 0, 0, 0.5) !important;
+      color: #fff !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 6px !important;
+    }
+    #HCB_comment_box #hcb_form input {
+      background: rgba(0, 0, 0, 0.5) !important;
+      color: #fff !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 4px !important;
+    }
+    #HCB_comment_box .hcb-comment-tb {
+      color: #e0e4ec !important;
+    }
+    #HCB_comment_box .author {
+      color: var(--aero-glow) !important;
+      font-weight: bold !important;
+    }
+
     /* JUEGO (DEMO) */
     .game-wrapper {
       position: relative;
@@ -468,7 +581,7 @@
       max-width: 760px;
       margin: 0 auto;
     }
-    canvas {
+    canvas#gameCanvas {
       width: 100%;
       height: 250px;
       background: #ffffff;
@@ -546,9 +659,9 @@
 </head>
 <body>
 
+  <!-- VENTANA PRINCIPAL -->
   <div class="aero-window">
     
-    <!-- ENCABEZADO FRUTIGER AERO -->
     <header class="window-header">
       <h1 class="brand-title">valkyrie.pe</h1>
       <div class="header-links">
@@ -559,7 +672,7 @@
 
     <div class="window-body">
       
-      <!-- MENÚ LATERAL CON DEMO ABAJO DE MANGA -->
+      <!-- SIDEBAR CON SECCIONES -->
       <nav class="sidebar">
         <button class="nav-btn active" onclick="openTab(event, 'tab-inicio')">Inicio</button>
         <button class="nav-btn" onclick="openTab(event, 'tab-sobremi')">Sobre mí</button>
@@ -573,6 +686,9 @@
         <button class="nav-btn sub-item" onclick="openTab(event, 'tab-anime')">Anime</button>
         <button class="nav-btn sub-item" onclick="openTab(event, 'tab-manga')">Manga</button>
         <button class="nav-btn sub-item" onclick="openTab(event, 'tab-demo')">Demo</button>
+
+        <!-- CHAT DEBAJO DE LA SECCIÓN DE AZUMANGA DAIOH -->
+        <button class="nav-btn" onclick="openTab(event, 'tab-chat')">Chat</button>
       </nav>
 
       <main class="content-area">
@@ -583,45 +699,54 @@
         <section id="tab-inicio" class="tab-content active">
           <div class="inicio-grid">
             
-            <!-- Columna Izquierda: Reproductor + Calendario -->
+            <!-- Columna Izquierda: Música + Fecha + Hora (Reloj Circular) -->
             <div class="inicio-col">
               
-              <!-- Reproductor con Nombres Completos -->
+              <!-- Música -->
               <div class="widget-box">
-                <div class="widget-title">Audio Player</div>
+                <div class="widget-title">Música</div>
                 <div class="music-player">
                   <div class="track-name" id="trackName">Cargando canción...</div>
                   <audio id="bgMusic" preload="metadata"></audio>
                   <div class="player-controls">
                     <button class="btn-ctrl" onclick="prevTrack()" title="Anterior">⏮</button>
-                    <button class="btn-ctrl btn-play-pause" onclick="togglePlayMusic()" id="btnPlayMusic">▶ PLAY</button>
+                    <button class="btn-ctrl btn-play-pause" onclick="togglePlayMusic()" id="btnPlayMusic" title="Reproducir">▶</button>
                     <button class="btn-ctrl" onclick="nextTrack()" title="Siguiente">⏭</button>
                   </div>
                 </div>
               </div>
 
-              <!-- Calendario -->
+              <!-- Fecha -->
               <div class="widget-box">
-                <div class="widget-title">Fecha 🇵🇪</div>
+                <div class="widget-title">Fecha</div>
                 <div class="calendar-display">
                   <div class="cal-day-num" id="calDayNum">--</div>
                   <div class="cal-day-text" id="calDayText">--</div>
                 </div>
               </div>
 
+              <!-- Hora (Reloj Circular Analógico) -->
+              <div class="widget-box">
+                <div class="widget-title">Hora</div>
+                <div class="clock-container">
+                  <canvas id="analogClock" width="120" height="120"></canvas>
+                  <div class="clock-digital" id="clockDigital">--:--:--</div>
+                </div>
+              </div>
+
             </div>
 
-            <!-- Columna Centro: GIFs con Copyright abajo -->
+            <!-- Columna Centro: GIFs -->
             <div class="center-display">
               <div class="random-gif-box">
                 <img id="randomGifImg" src="gif1.gif" alt="Anime GIF" onerror="this.src='https://media.tenor.com/WfU_j-4sQpAAAAAC/azumanga-daioh-osaka.gif'" />
               </div>
-              <div class="gif-copyright">
-                [ © valkyrie.pe and vale_ota ]
+              <div class="center-subtitle">
+                [ valkyrie.pe // personal archive & textiles ]
               </div>
             </div>
 
-            <!-- Columna Derecha: Encuesta + Hora + Buy Me a Coffee -->
+            <!-- Columna Derecha: Encuesta + Buy Me a Coffee -->
             <div class="inicio-col">
               
               <!-- Encuesta -->
@@ -640,14 +765,9 @@
                 </div>
               </div>
 
-              <!-- Reloj -->
-              <div class="widget-box">
-                <div class="widget-title">Hora 🇵🇪</div>
-                <div class="clock-display" id="clockLima">--:--:--</div>
-              </div>
-
               <!-- Buy Me a Coffee -->
-              <a href="https://buymeacoffee.com/" target="_blank" class="bmc-btn">
+              <!-- ////// ☕ ACÁ PEGA EL LINK DE BUY ME A COFFEE ////// -->
+              <a href="https://buymeacoffee.com/ACÁ_PEGA_EL_LINK" target="_blank" class="bmc-btn">
                 ☕ Cómprame un café
               </a>
 
@@ -659,22 +779,18 @@
         <!-- ========================================== -->
         <!-- 2. PESTAÑA: SOBRE MÍ (LIMPIO)              -->
         <!-- ========================================== -->
-        <section id="tab-sobremi" class="tab-content">
-          <!-- Espacio reservado para cuando decidas qué colocar -->
-        </section>
+        <section id="tab-sobremi" class="tab-content"></section>
 
         <!-- ========================================== -->
         <!-- 3. PESTAÑA: BLOG (LIMPIO)                  -->
         <!-- ========================================== -->
-        <section id="tab-blog" class="tab-content">
-          <!-- Espacio reservado para cuando decidas qué colocar -->
-        </section>
+        <section id="tab-blog" class="tab-content"></section>
 
         <!-- ========================================== -->
         <!-- 4. PESTAÑA: ROPA                           -->
         <!-- ========================================== -->
         <section id="tab-ropa" class="tab-content">
-          <div style="text-align:center; padding: 100px 0; color:var(--text-muted); font-size:1.1rem; letter-spacing:2px; text-transform:uppercase;">
+          <div style="text-align:center; padding: 120px 0; color:var(--text-muted); font-size:1.1rem; letter-spacing:2px; text-transform:uppercase;">
             Próximamente
           </div>
         </section>
@@ -716,25 +832,56 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- 6. PESTAÑA: ANIME (REPRODUCTOR EN VIVO)    -->
+        <!-- 6. PESTAÑA: ANIME (AZUMANGA DAIOH)         -->
         <!-- ========================================== -->
         <section id="tab-anime" class="tab-content">
-          <div class="media-viewer-container">
-            <iframe src="https://drive.google.com/file/d/12ZOmPXogno79deR1Q8ONr1Zt7pLCx7is/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          <div class="media-layout">
+            <div class="media-topbar">
+              <span id="animeEpTitle" class="media-title-current">Episodio 01: Miss Yukari</span>
+              <a id="animeDriveBtn" href="https://drive.google.com/file/d/12ZOmPXogno79deR1Q8ONr1Zt7pLCx7is/view" target="_blank" class="btn-drive-open">
+                Pantalla Completa ↗
+              </a>
+            </div>
+
+            <div class="selector-bar" id="animeEpBar">
+              <button class="sel-btn active" onclick="selectAnimeEp(0)">Episodio 01</button>
+              <button class="sel-btn" onclick="selectAnimeEp(1)">Episodio 02</button>
+              <button class="sel-btn" onclick="selectAnimeEp(2)">Episodio 03</button>
+            </div>
+
+            <div class="media-viewer-container">
+              <iframe id="animeIframe" src="https://drive.google.com/file/d/12ZOmPXogno79deR1Q8ONr1Zt7pLCx7is/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
           </div>
         </section>
 
         <!-- ========================================== -->
-        <!-- 7. PESTAÑA: MANGA (LECTOR EN VIVO)         -->
+        <!-- 7. PESTAÑA: MANGA (AZUMANGA DAIOH)         -->
         <!-- ========================================== -->
         <section id="tab-manga" class="tab-content">
-          <div class="media-viewer-container">
-            <iframe src="https://drive.google.com/file/d/16TaxTpoZWPEJniH3GTmeytW8FKvy4eA8/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          <div class="media-layout">
+            <div class="media-topbar">
+              <span id="mangaTomoTitle" class="media-title-current">Azumanga Daioh - Tomo 01</span>
+              <a id="mangaDriveBtn" href="https://drive.google.com/file/d/16TaxTpoZWPEJniH3GTmeytW8FKvy4eA8/view" target="_blank" class="btn-drive-open">
+                Leer en Pantalla Completa ↗
+              </a>
+            </div>
+
+            <div class="selector-bar" id="mangaTomoBar">
+              <button class="sel-btn active" onclick="selectMangaTomo(0)">Tomo 01</button>
+              <button class="sel-btn" onclick="selectMangaTomo(1)">Tomo 02</button>
+              <button class="sel-btn" onclick="selectMangaTomo(2)">Tomo 03</button>
+              <button class="sel-btn" onclick="selectMangaTomo(3)">Tomo 04</button>
+            </div>
+
+            <div class="media-viewer-container">
+              <iframe id="mangaIframe" src="https://drive.google.com/file/d/16TaxTpoZWPEJniH3GTmeytW8FKvy4eA8/preview" allow="fullscreen" allowfullscreen></iframe>
+            </div>
           </div>
         </section>
 
         <!-- ========================================== -->
-        <!-- 8. PESTAÑA: DEMO (JUEGO ÚLTIMA VERSIÓN)     -->
+        <!-- 8. PESTAÑA: DEMO (JUEGO OSAKA)             -->
         <!-- ========================================== -->
         <section id="tab-demo" class="tab-content">
           <div class="game-wrapper">
@@ -750,12 +897,35 @@
           </div>
         </section>
 
+        <!-- ========================================== -->
+        <!-- 9. PESTAÑA: CHAT (LIBRO DE VISITAS LIMPIO) -->
+        <!-- ========================================== -->
+        <section id="tab-chat" class="tab-content">
+          <div class="chat-box">
+            <div id="HCB_comment_box" style="color:#f0f0f0;">Cargando mensajes...</div>
+            <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css" />
+            <script type="text/javascript" id="hcb">
+              if(!window.hcb_user){hcb_user={};} 
+              (function(){
+                var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";
+                s.setAttribute("type","text/javascript");
+                s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1%24...&opts=16862&num=10&ts=1");
+                if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);
+              })();
+            </script>
+          </div>
+        </section>
+
       </main>
     </div>
   </div>
 
+  <!-- COPYRIGHT DEBAJO DEL RECUADRO GRANDE -->
+  <footer class="page-footer">
+    [ © valkyrie.pe and vale_ota ]
+  </footer>
+
   <script>
-    // CAMBIO DE PESTAÑAS
     function openTab(evt, tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
@@ -763,7 +933,85 @@
       evt.currentTarget.classList.add('active');
     }
 
-    // 1. RELOJ Y FECHA PERÚ
+    // 1. DIBUJO DEL RELOJ ANALÓGICO CIRCULAR Y FECHA
+    function drawAnalogClock(hours, minutes, seconds) {
+      const canvas = document.getElementById('analogClock');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const radius = canvas.width / 2;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.save();
+      ctx.translate(radius, radius);
+
+      // Fondo esfera tipo cristal Aero
+      const grad = ctx.createRadialGradient(0, 0, radius * 0.1, 0, 0, radius * 0.95);
+      grad.addColorStop(0, 'rgba(26, 32, 42, 0.85)');
+      grad.addColorStop(0.85, 'rgba(12, 16, 22, 0.95)');
+      grad.addColorStop(1, 'rgba(40, 48, 62, 0.9)');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(0, 0, radius - 4, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Borde exterior cromado
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+
+      // Marcas horarias
+      for (let i = 0; i < 12; i++) {
+        const angle = (i * Math.PI) / 6;
+        const x1 = Math.sin(angle) * (radius - 12);
+        const y1 = -Math.cos(angle) * (radius - 12);
+        const x2 = Math.sin(angle) * (radius - 6);
+        const y2 = -Math.cos(angle) * (radius - 6);
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = (i % 3 === 0) ? '#ff9d42' : 'rgba(255, 255, 255, 0.4)';
+        ctx.lineWidth = (i % 3 === 0) ? 2.5 : 1.5;
+        ctx.stroke();
+      }
+
+      // Aguja de horas
+      const hourAngle = ((hours % 12) + minutes / 60 + seconds / 3600) * (Math.PI / 6);
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(Math.sin(hourAngle) * (radius * 0.5), -Math.cos(hourAngle) * (radius * 0.5));
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 3.5;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // Aguja de minutos
+      const minAngle = (minutes + seconds / 60) * (Math.PI / 30);
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(Math.sin(minAngle) * (radius * 0.72), -Math.cos(minAngle) * (radius * 0.72));
+      ctx.strokeStyle = '#e0e4ec';
+      ctx.lineWidth = 2.2;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // Segundero (naranja aero)
+      const secAngle = seconds * (Math.PI / 30);
+      ctx.beginPath();
+      ctx.moveTo(-Math.sin(secAngle) * 8, Math.cos(secAngle) * 8);
+      ctx.lineTo(Math.sin(secAngle) * (radius * 0.8), -Math.cos(secAngle) * (radius * 0.8));
+      ctx.strokeStyle = '#ff9d42';
+      ctx.lineWidth = 1.4;
+      ctx.stroke();
+
+      // Pin central
+      ctx.beginPath();
+      ctx.arc(0, 0, 3.5, 0, Math.PI * 2);
+      ctx.fillStyle = '#ff9d42';
+      ctx.fill();
+
+      ctx.restore();
+    }
+
     function updatePeruTime() {
       const now = new Date();
       
@@ -774,18 +1022,33 @@
         second: '2-digit',
         hour12: true
       }).format(now);
-      document.getElementById('clockLima').innerText = timeStr;
+      document.getElementById('clockDigital').innerText = timeStr;
 
       const dayNum = new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', day: 'numeric' }).format(now);
       const dayText = new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', weekday: 'short', month: 'short' }).format(now);
-      
       document.getElementById('calDayNum').innerText = dayNum;
       document.getElementById('calDayText').innerText = dayText;
+
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Lima',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        hour12: false
+      }).formatToParts(now);
+
+      let h = 0, m = 0, s = 0;
+      for (let p of parts) {
+        if (p.type === 'hour') h = parseInt(p.value, 10);
+        if (p.type === 'minute') m = parseInt(p.value, 10);
+        if (p.type === 'second') s = parseInt(p.value, 10);
+      }
+      drawAnalogClock(h, m, s);
     }
     setInterval(updatePeruTime, 1000);
     updatePeruTime();
 
-    // 2. PLAYLIST DE MÚSICA CON 5 TEMAS
+    // 2. PLAYLIST DE MÚSICA
     const playlist = [
       { file: "teardrop.mp3", title: "Teardrop - Massive Attack and Elizabeth Fraser" },
       { file: "prajamagia.mp3", title: "Praja Magia - Nu Genea" },
@@ -810,13 +1073,13 @@
     function togglePlayMusic() {
       if (bgMusic.paused) {
         bgMusic.play().then(() => {
-          btnPlayMusic.innerText = '❚❚ PAUSA';
+          btnPlayMusic.innerText = '❚❚';
         }).catch(() => {
-          alert('Para reproducir música, asegúrate de haber subido el archivo "' + playlist[currentTrackIdx].file + '" a tu GitHub.');
+          alert('Para reproducir música, asegúrate de haber subido el archivo "' + playlist[currentTrackIdx].file + '" a tu repositorio de GitHub.');
         });
       } else {
         bgMusic.pause();
-        btnPlayMusic.innerText = '▶ PLAY';
+        btnPlayMusic.innerText = '▶';
       }
     }
 
@@ -824,7 +1087,7 @@
       currentTrackIdx = (currentTrackIdx + 1) % playlist.length;
       loadTrack(currentTrackIdx);
       bgMusic.play().then(() => {
-        btnPlayMusic.innerText = '❚❚ PAUSA';
+        btnPlayMusic.innerText = '❚❚';
       }).catch(() => {});
     }
 
@@ -832,7 +1095,7 @@
       currentTrackIdx = (currentTrackIdx - 1 + playlist.length) % playlist.length;
       loadTrack(currentTrackIdx);
       bgMusic.play().then(() => {
-        btnPlayMusic.innerText = '❚❚ PAUSA';
+        btnPlayMusic.innerText = '❚❚';
       }).catch(() => {});
     }
 
@@ -843,14 +1106,14 @@
     const selectedGif = localGifs[Math.floor(Math.random() * localGifs.length)];
     document.getElementById('randomGifImg').src = selectedGif;
 
-    // 4. ENCUESTA INTERACTIVA DE MASCOTAS
+    // 4. ENCUESTA INICIAL EN 0 VOTOS REALES
     let petVotes = {
-      gato: 16,
-      perro: 12,
-      hamster: 4,
-      roedor: 2,
-      ave: 3,
-      otro: 2
+      gato: 0,
+      perro: 0,
+      hamster: 0,
+      roedor: 0,
+      ave: 0,
+      otro: 0
     };
 
     const petLabels = {
@@ -870,7 +1133,7 @@
       const pollBox = document.getElementById('pollBox');
       let html = '';
       for (let k in petVotes) {
-        const pct = Math.round((petVotes[k] / total) * 100);
+        const pct = total > 0 ? Math.round((petVotes[k] / total) * 100) : 0;
         html += `
           <div style="font-size:0.75rem; margin-top:4px; display:flex; justify-content:space-between;">
             <span>${petLabels[k]}</span>
@@ -884,9 +1147,48 @@
       pollBox.innerHTML = html;
     }
 
-    // ==========================================
-    // 5. MOTOR DEL JUEGO DEMO (FÍSICAS DINOSAURIO)
-    // ==========================================
+    // 5. PLAYLIST DE ANIME CON CAMBIO DE EPISODIOS
+    const animePlaylist = [
+      { title: "Episodio 01: Miss Yukari", id: "12ZOmPXogno79deR1Q8ONr1Zt7pLCx7is" },
+      { title: "Episodio 02: Osaka", id: "TU_ID_DE_DRIVE_AQUI" },
+      { title: "Episodio 03: Nyamo", id: "TU_ID_DE_DRIVE_AQUI" }
+    ];
+
+    function selectAnimeEp(idx) {
+      const ep = animePlaylist[idx];
+      document.getElementById('animeEpTitle').innerText = ep.title;
+      document.getElementById('animeIframe').src = "https://drive.google.com/file/d/" + ep.id + "/preview";
+      document.getElementById('animeDriveBtn').href = "https://drive.google.com/file/d/" + ep.id + "/view";
+      
+      const buttons = document.querySelectorAll('#animeEpBar .sel-btn');
+      buttons.forEach((b, i) => {
+        if (i === idx) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+    }
+
+    // 6. SELECTOR DE TOMOS PARA MANGA
+    const mangaPlaylist = [
+      { title: "Azumanga Daioh - Tomo 01", id: "16TaxTpoZWPEJniH3GTmeytW8FKvy4eA8" },
+      { title: "Azumanga Daioh - Tomo 02", id: "TU_ID_DE_DRIVE_AQUI" },
+      { title: "Azumanga Daioh - Tomo 03", id: "TU_ID_DE_DRIVE_AQUI" },
+      { title: "Azumanga Daioh - Tomo 04", id: "TU_ID_DE_DRIVE_AQUI" }
+    ];
+
+    function selectMangaTomo(idx) {
+      const tomo = mangaPlaylist[idx];
+      document.getElementById('mangaTomoTitle').innerText = tomo.title;
+      document.getElementById('mangaIframe').src = "https://drive.google.com/file/d/" + tomo.id + "/preview";
+      document.getElementById('mangaDriveBtn').href = "https://drive.google.com/file/d/" + tomo.id + "/view";
+      
+      const buttons = document.querySelectorAll('#mangaTomoBar .sel-btn');
+      buttons.forEach((b, i) => {
+        if (i === idx) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+    }
+
+    // 7. MOTOR DEL JUEGO DEMO (OSAKA)
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
     const overlay = document.getElementById('playOverlay');
