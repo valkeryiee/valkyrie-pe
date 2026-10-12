@@ -114,7 +114,7 @@
       background: var(--glass-inner);
     }
 
-    /* SIDEBAR */
+    /* SIDEBAR CON TAMAÑOS DE TIPOGRAFÍA UNIFORMES */
     .sidebar {
       width: 195px;
       background: rgba(12, 14, 18, 0.45);
@@ -144,17 +144,17 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 6px;
       color: var(--text-main);
-      font-size: 0.85rem;
+      font-size: 0.84rem; /* TAMAÑO EXACTO PARA TODOS */
       font-weight: 600;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.6px;
       text-align: left;
       transition: all 0.15s ease;
       box-shadow: 0 2px 5px rgba(0,0,0,0.25);
     }
 
     .nav-btn.sub-item {
-      padding-left: 22px;
-      font-size: 0.82rem;
+      padding-left: 20px;
+      font-size: 0.84rem; /* MISMO TAMAÑO EXACTO */
       color: #ccd2de;
     }
 
@@ -364,13 +364,12 @@
       transform: scale(1.02);
     }
 
-    /* CENTRO: GIF DISPLAY */
+    /* CENTRO: SOLO EL GIF (SIN TEXTOS DEBAJO) */
     .center-display {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
-      text-align: center;
+      justify-content: center;
     }
     .random-gif-box {
       width: 100%;
@@ -389,13 +388,8 @@
       height: 100%;
       object-fit: cover;
     }
-    .center-subtitle {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      font-family: monospace;
-    }
 
-    /* COPYRIGHT INFERIOR */
+    /* COPYRIGHT INFERIOR (DEBAJO DE TODO EL RECUADRO) */
     .page-footer {
       margin-top: 18px;
       font-size: 0.75rem;
@@ -672,11 +666,12 @@
 
     <div class="window-body">
       
-      <!-- SIDEBAR CON SECCIONES -->
+      <!-- MENÚ LATERAL: CHAT REUBICADO DEBAJO DE BLOG -->
       <nav class="sidebar">
         <button class="nav-btn active" onclick="openTab(event, 'tab-inicio')">Inicio</button>
         <button class="nav-btn" onclick="openTab(event, 'tab-sobremi')">Sobre mí</button>
         <button class="nav-btn" onclick="openTab(event, 'tab-blog')">Blog</button>
+        <button class="nav-btn" onclick="openTab(event, 'tab-chat')">Chat</button>
         
         <div class="nav-category">Tienda</div>
         <button class="nav-btn sub-item" onclick="openTab(event, 'tab-ropa')">Ropa</button>
@@ -686,9 +681,6 @@
         <button class="nav-btn sub-item" onclick="openTab(event, 'tab-anime')">Anime</button>
         <button class="nav-btn sub-item" onclick="openTab(event, 'tab-manga')">Manga</button>
         <button class="nav-btn sub-item" onclick="openTab(event, 'tab-demo')">Demo</button>
-
-        <!-- CHAT DEBAJO DE LA SECCIÓN DE AZUMANGA DAIOH -->
-        <button class="nav-btn" onclick="openTab(event, 'tab-chat')">Chat</button>
       </nav>
 
       <main class="content-area">
@@ -736,13 +728,10 @@
 
             </div>
 
-            <!-- Columna Centro: GIFs -->
+            <!-- Columna Centro: SOLO EL GIF (SIN TEXTOS DEBAJO) -->
             <div class="center-display">
               <div class="random-gif-box">
                 <img id="randomGifImg" src="gif1.gif" alt="Anime GIF" onerror="this.src='https://media.tenor.com/WfU_j-4sQpAAAAAC/azumanga-daioh-osaka.gif'" />
-              </div>
-              <div class="center-subtitle">
-                [ valkyrie.pe // personal archive & textiles ]
               </div>
             </div>
 
@@ -787,7 +776,26 @@
         <section id="tab-blog" class="tab-content"></section>
 
         <!-- ========================================== -->
-        <!-- 4. PESTAÑA: ROPA                           -->
+        <!-- 4. PESTAÑA: CHAT (REUBICADO TRAS BLOG)     -->
+        <!-- ========================================== -->
+        <section id="tab-chat" class="tab-content">
+          <div class="chat-box">
+            <div id="HCB_comment_box" style="color:#f0f0f0;">Cargando mensajes...</div>
+            <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css" />
+            <script type="text/javascript" id="hcb">
+              if(!window.hcb_user){hcb_user={};} 
+              (function(){
+                var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";
+                s.setAttribute("type","text/javascript");
+                s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1%24...&opts=16862&num=10&ts=1");
+                if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);
+              })();
+            </script>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 5. PESTAÑA: ROPA                           -->
         <!-- ========================================== -->
         <section id="tab-ropa" class="tab-content">
           <div style="text-align:center; padding: 120px 0; color:var(--text-muted); font-size:1.1rem; letter-spacing:2px; text-transform:uppercase;">
@@ -796,7 +804,7 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- 5. PESTAÑA: FIGURAS                        -->
+        <!-- 6. PESTAÑA: FIGURAS                        -->
         <!-- ========================================== -->
         <section id="tab-figuras" class="tab-content">
           <div class="items-grid">
@@ -832,7 +840,7 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- 6. PESTAÑA: ANIME (AZUMANGA DAIOH)         -->
+        <!-- 7. PESTAÑA: ANIME (AZUMANGA DAIOH)         -->
         <!-- ========================================== -->
         <section id="tab-anime" class="tab-content">
           <div class="media-layout">
@@ -856,7 +864,7 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- 7. PESTAÑA: MANGA (AZUMANGA DAIOH)         -->
+        <!-- 8. PESTAÑA: MANGA (AZUMANGA DAIOH)         -->
         <!-- ========================================== -->
         <section id="tab-manga" class="tab-content">
           <div class="media-layout">
@@ -881,7 +889,7 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- 8. PESTAÑA: DEMO (JUEGO OSAKA)             -->
+        <!-- 9. PESTAÑA: DEMO (JUEGO OSAKA)             -->
         <!-- ========================================== -->
         <section id="tab-demo" class="tab-content">
           <div class="game-wrapper">
@@ -894,25 +902,6 @@
               </button>
               <p style="font-size:0.75rem; color:#333; margin-top:12px; font-weight:600;">[ESPACIO / TOCAR] para saltar</p>
             </div>
-          </div>
-        </section>
-
-        <!-- ========================================== -->
-        <!-- 9. PESTAÑA: CHAT (LIBRO DE VISITAS LIMPIO) -->
-        <!-- ========================================== -->
-        <section id="tab-chat" class="tab-content">
-          <div class="chat-box">
-            <div id="HCB_comment_box" style="color:#f0f0f0;">Cargando mensajes...</div>
-            <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css" />
-            <script type="text/javascript" id="hcb">
-              if(!window.hcb_user){hcb_user={};} 
-              (function(){
-                var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";
-                s.setAttribute("type","text/javascript");
-                s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1%24...&opts=16862&num=10&ts=1");
-                if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);
-              })();
-            </script>
           </div>
         </section>
 
