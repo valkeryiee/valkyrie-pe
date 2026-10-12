@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>valkyrie.pe</title>
   <style>
+    /* --- PALETA Y ACABADOS FRUTIGER AERO ARCHIVE --- */
     :root {
-      --glass-window: rgba(12, 14, 18, 0.42);
-      --glass-inner: rgba(6, 8, 12, 0.25);
-      --glass-card: rgba(18, 22, 30, 0.45);
-      --glass-border: rgba(255, 255, 255, 0.18);
-      --text-main: #f0f0f0;
-      --text-muted: #a6adb9;
-      --accent-orange: #ff9d42;
+      --glass-window: rgba(14, 16, 20, 0.40);
+      --glass-inner: rgba(8, 10, 14, 0.22);
+      --glass-card: rgba(18, 22, 28, 0.48);
+      --glass-border: rgba(255, 255, 255, 0.20);
+      --aero-glow: #ff9d42;
+      --aero-glow-soft: rgba(255, 157, 66, 0.35);
+      --text-main: #f5f6f8;
+      --text-muted: #abb1be;
     }
 
     * {
@@ -23,7 +25,7 @@
     }
 
     body {
-      background-color: #0e1014;
+      background-color: #0d0f12;
       background-image: url('bg.jpg');
       background-size: cover;
       background-position: center;
@@ -48,36 +50,36 @@
     /* VENTANA PRINCIPAL MÁS AMPLIA */
     .aero-window {
       width: 100%;
-      max-width: 1140px;
-      min-height: 680px;
+      max-width: 1160px;
+      min-height: 700px;
       background: var(--glass-window);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--glass-border);
       border-radius: 16px;
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      box-shadow: 0 30px 75px rgba(0, 0, 0, 0.88), inset 0 1px 0 rgba(255, 255, 255, 0.35);
       display: flex;
       flex-direction: column;
       overflow: hidden;
     }
 
-    /* BARRA SUPERIOR CON COLOR CONTRASTADO Y GLOSS */
+    /* ENCABEZADO FRUTIGER AERO GLOSSY (IDÉNTICO AL ARCHIVE) */
     .window-header {
-      background: linear-gradient(180deg, rgba(45, 32, 24, 0.75) 0%, rgba(20, 15, 12, 0.85) 60%, rgba(10, 8, 7, 0.95) 100%);
-      border-bottom: 1px solid rgba(255, 157, 66, 0.3);
-      padding: 16px 28px;
+      background: linear-gradient(180deg, rgba(58, 44, 34, 0.82) 0%, rgba(28, 20, 16, 0.90) 48%, rgba(14, 11, 9, 0.96) 100%);
+      border-bottom: 2px solid rgba(255, 157, 66, 0.35);
+      padding: 16px 26px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.38), 0 4px 15px rgba(0, 0, 0, 0.6);
     }
 
     .brand-title {
       font-family: "Georgia", serif;
       font-size: 1.65rem;
       letter-spacing: 2px;
-      color: #fff4ea;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+      color: #fff6ee;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
       font-weight: 700;
     }
 
@@ -87,12 +89,12 @@
     }
 
     .btn-link {
-      padding: 7px 15px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(20, 24, 30, 0.6) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 7px 16px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(25, 20, 16, 0.65) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       border-radius: 6px;
-      color: #eaeaea;
-      font-size: 0.8rem;
+      color: #f0f0f0;
+      font-size: 0.82rem;
       font-weight: 600;
       text-decoration: none;
       box-shadow: 0 2px 6px rgba(0,0,0,0.4);
@@ -100,7 +102,8 @@
     }
 
     .btn-link:hover {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(35, 40, 50, 0.8) 100%);
+      background: linear-gradient(180deg, rgba(255, 157, 66, 0.28) 0%, rgba(40, 30, 24, 0.8) 100%);
+      border-color: var(--aero-glow);
       color: #fff;
     }
 
@@ -111,10 +114,10 @@
       background: var(--glass-inner);
     }
 
-    /* MENÚ LATERAL CON SUBTÍTULOS ESTILO FRUTIGER AERO */
+    /* SIDEBAR CON SUBTÍTULOS ESTILO AERO */
     .sidebar {
-      width: 190px;
-      background: rgba(10, 12, 16, 0.45);
+      width: 195px;
+      background: rgba(12, 14, 18, 0.45);
       border-right: 1px solid rgba(255, 255, 255, 0.08);
       padding: 18px 12px;
       display: flex;
@@ -128,16 +131,16 @@
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--accent-orange);
+      color: var(--aero-glow);
       padding: 12px 10px 4px 10px;
       pointer-events: none;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+      text-shadow: 0 1px 4px rgba(0,0,0,0.9);
     }
 
     .nav-btn {
       width: 100%;
       padding: 9px 14px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(15, 18, 24, 0.45) 100%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 20, 26, 0.48) 100%);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 6px;
       color: var(--text-main);
@@ -152,28 +155,29 @@
     .nav-btn.sub-item {
       padding-left: 22px;
       font-size: 0.82rem;
-      color: #d0d5e0;
+      color: #ccd2de;
     }
 
     .nav-btn:hover {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(25, 30, 40, 0.6) 100%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(30, 35, 45, 0.6) 100%);
       border-color: rgba(255, 255, 255, 0.28);
       color: #fff;
     }
 
+    /* BOTÓN ACTIVO CON GLOW NARANJA */
     .nav-btn.active {
-      background: linear-gradient(180deg, rgba(5, 7, 10, 0.6) 0%, rgba(25, 28, 36, 0.6) 100%);
-      border-color: rgba(255, 157, 66, 0.4);
+      background: linear-gradient(180deg, rgba(255, 157, 66, 0.22) 0%, rgba(32, 22, 16, 0.75) 100%);
+      border-color: var(--aero-glow);
       color: #fff;
-      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 0 10px var(--aero-glow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
 
-    /* CONTENEDOR DE CONTENIDO */
+    /* ÁREA DE CONTENIDO */
     .content-area {
       flex: 1;
       padding: 24px 28px;
       overflow-y: auto;
-      max-height: 600px;
+      max-height: 620px;
     }
 
     .tab-content {
@@ -190,7 +194,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* --- LAYOUT DE LA PESTAÑA: INICIO --- */
+    /* --- PESTAÑA: INICIO --- */
     .inicio-grid {
       display: grid;
       grid-template-columns: 240px 1fr 240px;
@@ -218,63 +222,74 @@
       font-weight: 700;
       letter-spacing: 1.2px;
       text-transform: uppercase;
-      color: var(--accent-orange);
+      color: var(--aero-glow);
       margin-bottom: 8px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       padding-bottom: 4px;
     }
 
-    /* Reproductor de música retro */
+    /* REPRODUCTOR PLAYLIST COMPLETO */
     .music-player {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
     .track-name {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #fff;
       font-family: monospace;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      background: rgba(0,0,0,0.4);
+      padding: 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.08);
     }
     .player-controls {
       display: flex;
-      gap: 8px;
+      gap: 6px;
     }
-    .btn-play-pause {
-      flex: 1;
-      padding: 6px;
-      background: linear-gradient(180deg, #333 0%, #111 100%);
-      border: 1px solid #555;
+    .btn-ctrl {
+      padding: 6px 10px;
+      background: linear-gradient(180deg, #2c3038 0%, #15181e 100%);
+      border: 1px solid #444a56;
       color: #fff;
       border-radius: 4px;
       font-size: 0.75rem;
       font-weight: bold;
+      transition: all 0.15s ease;
+    }
+    .btn-ctrl:hover {
+      background: #3d4350;
+      border-color: var(--aero-glow);
+    }
+    .btn-play-pause {
+      flex: 1;
     }
 
-    /* Calendario */
+    /* CALENDARIO */
     .calendar-display {
       text-align: center;
       padding: 6px 0;
     }
     .cal-day-num {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 800;
       color: #fff;
       line-height: 1;
     }
     .cal-day-text {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       color: var(--text-muted);
       letter-spacing: 1px;
     }
 
-    /* Reloj Lima */
+    /* RELOJ LIMA */
     .clock-display {
       font-family: "Courier New", monospace;
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: bold;
       text-align: center;
       color: #fff;
@@ -284,7 +299,7 @@
       border: 1px solid rgba(255,255,255,0.08);
     }
 
-    /* Encuesta Gatos vs Perros */
+    /* ENCUESTA */
     .poll-options {
       display: flex;
       flex-direction: column;
@@ -305,20 +320,13 @@
     .poll-btn:hover {
       background: rgba(255,255,255,0.18);
     }
-    .poll-bar {
-      height: 6px;
-      background: rgba(255, 157, 66, 0.8);
-      border-radius: 3px;
-      margin-top: 4px;
-      display: none;
-    }
 
-    /* Buy Me a Coffee */
+    /* BUY ME A COFFEE */
     .bmc-btn {
       display: block;
       width: 100%;
       padding: 10px;
-      background: linear-gradient(180deg, #ffdd00 0%, #e0a800 100%);
+      background: linear-gradient(180deg, #ffdd00 0%, #d8a000 100%);
       color: #000;
       font-size: 0.82rem;
       font-weight: 700;
@@ -332,7 +340,7 @@
       transform: scale(1.02);
     }
 
-    /* Centro: GIF Display */
+    /* CENTRO: GIF DISPLAY */
     .center-display {
       display: flex;
       flex-direction: column;
@@ -342,14 +350,15 @@
     }
     .random-gif-box {
       width: 100%;
-      height: 320px;
-      background: rgba(0,0,0,0.4);
+      height: 330px;
+      background: rgba(0,0,0,0.45);
       border: 1px solid rgba(255,255,255,0.15);
       border-radius: 8px;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.7);
     }
     .random-gif-box img {
       width: 100%;
@@ -360,7 +369,7 @@
     /* --- PESTAÑA: SOBRE MÍ --- */
     .about-layout {
       display: grid;
-      grid-template-columns: 200px 1fr;
+      grid-template-columns: 210px 1fr;
       gap: 22px;
       background: var(--glass-card);
       border: 1px solid rgba(255,255,255,0.14);
@@ -378,8 +387,6 @@
       justify-content: center;
       color: var(--text-muted);
       font-size: 0.85rem;
-      background-size: cover;
-      background-position: center;
     }
     .about-text {
       font-size: 0.9rem;
@@ -404,7 +411,7 @@
       display: inline-block;
       font-size: 0.76rem;
       font-family: monospace;
-      color: var(--accent-orange);
+      color: var(--aero-glow);
       font-weight: bold;
       letter-spacing: 1px;
       margin-bottom: 8px;
@@ -417,7 +424,7 @@
       color: #e0e4ec;
     }
 
-    /* --- PRODUCTOS Y ARCHIVOS (ROPA / FIGURAS) --- */
+    /* --- TIENDA (ROPA / FIGURAS) --- */
     .items-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -479,11 +486,36 @@
       color: #000000;
     }
 
-    /* --- VISORES: ANIME Y MANGA (GOOGLE DRIVE) --- */
+    /* --- VISOR GOOGLE DRIVE --- */
+    .drive-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .drive-topbar {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .btn-drive-open {
+      padding: 6px 14px;
+      background: linear-gradient(180deg, rgba(255, 157, 66, 0.25) 0%, rgba(30, 22, 16, 0.7) 100%);
+      border: 1px solid var(--aero-glow);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 5px;
+      box-shadow: 0 0 8px var(--aero-glow-soft);
+      transition: all 0.15s ease;
+    }
+    .btn-drive-open:hover {
+      background: var(--aero-glow);
+      color: #000;
+    }
     .media-viewer-container {
       width: 100%;
       height: 520px;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.65);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 8px;
       overflow: hidden;
@@ -525,18 +557,18 @@
 
   <div class="aero-window">
     
-    <!-- ENCABEZADO DE LA VENTANA (SOLO VALKYRIE.PE) -->
+    <!-- ENCABEZADO FRUTIGER AERO -->
     <header class="window-header">
       <h1 class="brand-title">valkyrie.pe</h1>
       <div class="header-links">
-        <a href="https://m.me/61594882152570" target="_blank" class="btn-link">Messenger</a>
         <a href="https://instagram.com/valkyrie.pe" target="_blank" class="btn-link">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61594882152570" target="_blank" class="btn-link">Facebook</a>
       </div>
     </header>
 
     <div class="window-body">
       
-      <!-- MENÚ LATERAL CON SUBTÍTULOS ESTILO FRUTIGER AERO -->
+      <!-- MENÚ LATERAL CON SUBTÍTULOS -->
       <nav class="sidebar">
         <button class="nav-btn active" onclick="openTab(event, 'tab-inicio')">Inicio</button>
         <button class="nav-btn" onclick="openTab(event, 'tab-sobremi')">Sobre mí</button>
@@ -564,15 +596,16 @@
             <!-- Columna Izquierda: Reproductor + Calendario -->
             <div class="inicio-col">
               
-              <!-- Reproductor de Música -->
+              <!-- Reproductor con Playlist de 5 canciones -->
               <div class="widget-box">
                 <div class="widget-title">Audio Player</div>
                 <div class="music-player">
-                  <div class="track-name" id="trackName">musica.mp3</div>
-                  <!-- ////// 🎵 ACÁ SUBE TU ARCHIVO musica.mp3 A TU REPOSITORIO DE GITHUB ////// -->
-                  <audio id="bgMusic" src="musica.mp3" preload="metadata"></audio>
+                  <div class="track-name" id="trackName">Cargando canción...</div>
+                  <audio id="bgMusic" preload="metadata"></audio>
                   <div class="player-controls">
-                    <button class="btn-play-pause" onclick="togglePlayMusic()" id="btnPlayMusic">▶ PLAY</button>
+                    <button class="btn-ctrl" onclick="prevTrack()" title="Anterior">⏮</button>
+                    <button class="btn-ctrl btn-play-pause" onclick="togglePlayMusic()" id="btnPlayMusic">▶ PLAY</button>
+                    <button class="btn-ctrl" onclick="nextTrack()" title="Siguiente">⏭</button>
                   </div>
                 </div>
               </div>
@@ -588,10 +621,10 @@
 
             </div>
 
-            <!-- Columna Centro: GIFs de Anime Aleatorios -->
+            <!-- Columna Centro: GIFs Locales Aleatorios -->
             <div class="center-display">
               <div class="random-gif-box">
-                <img id="randomGifImg" src="https://media.tenor.com/WfU_j-4sQpAAAAAC/azumanga-daioh-osaka.gif" alt="Anime GIF" />
+                <img id="randomGifImg" src="gif1.gif" alt="Anime GIF" onerror="this.src='https://media.tenor.com/WfU_j-4sQpAAAAAC/azumanga-daioh-osaka.gif'" />
               </div>
               <p style="font-size:0.75rem; color:var(--text-muted); font-family:monospace;">
                 [valkyrie.pe // personal archive & textiles]
@@ -606,9 +639,7 @@
                 <div class="widget-title">Encuesta</div>
                 <div class="poll-options" id="pollBox">
                   <button class="poll-btn" onclick="votePoll('gatos')">🐱 Gatos</button>
-                  <div class="poll-bar" id="barGatos"></div>
                   <button class="poll-btn" onclick="votePoll('perros')">🐶 Perros</button>
-                  <div class="poll-bar" id="barPerros"></div>
                 </div>
               </div>
 
@@ -619,7 +650,7 @@
               </div>
 
               <!-- Buy Me a Coffee -->
-              <!-- ////// ☕ ACÁ PEGA TU ENLACE DE BUY ME A COFFEE EN EL HREF ////// -->
+              <!-- ////// ☕ ACÁ PEGA TU ENLACE DE BUY ME A COFFEE ////// -->
               <a href="https://buymeacoffee.com/" target="_blank" class="bmc-btn">
                 ☕ Cómprame un café
               </a>
@@ -634,7 +665,6 @@
         <!-- ========================================== -->
         <section id="tab-sobremi" class="tab-content">
           <div class="about-layout">
-            <!-- ////// 🖼️ ACÁ PUEDES CAMBIAR LA IMAGEN O DEJARLA ////// -->
             <div class="about-avatar">[Tu Foto / Avatar]</div>
             <div class="about-text">
               <p style="margin-bottom: 12px;">
@@ -657,9 +687,9 @@
             <!-- ////// 📝 ACÁ ESCRIBE TU BLOG (COPIA Y PEGA ESTE BLOQUE) ////// -->
             <!-- //////////////////////////////////////////////////////// -->
             <article class="blog-post">
-              <span class="post-timestamp" id="blogCurrentTime">10 OCT 2026 // 10:48 PM</span>
+              <span class="post-timestamp">11 OCT 2026 // 08:49 PM</span>
               <p class="post-body">
-                Configurando la nueva arquitectura de la web. Agregando visores multimedia, tienda y bitácora limpia sin títulos innecesarios.
+                Actualizando la web con el nuevo diseño Frutiger Aero, visores de Drive para anime y manga, y reproductor con playlist.
               </p>
             </article>
             <!-- //////////////////////////////////////////////////////// -->
@@ -720,22 +750,34 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- 6. PESTAÑA: ANIME (REPRODUCTOR DRIVE)      -->
+        <!-- 6. PESTAÑA: ANIME (AZUMANGA DAIOH)         -->
         <!-- ========================================== -->
         <section id="tab-anime" class="tab-content">
-          <div class="media-viewer-container">
-            <!-- ////// 🎥 ACÁ PEGA EL ID DE TU VIDEO DE GOOGLE DRIVE REEMPLAZANDO "TU_ID_DE_VIDEO" ////// -->
-            <iframe src="https://drive.google.com/file/d/TU_ID_DE_VIDEO/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          <div class="drive-container">
+            <div class="drive-topbar">
+              <a href="https://drive.google.com/drive/folders/1YCz_lp9gFqyDZhw0LrxFJSSZnq7Nbv-K?usp=sharing" target="_blank" class="btn-drive-open">
+                Abrir carpeta en Google Drive ↗
+              </a>
+            </div>
+            <div class="media-viewer-container">
+              <iframe src="https://drive.google.com/embeddedfolderview?id=1YCz_lp9gFqyDZhw0LrxFJSSZnq7Nbv-K#grid" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
           </div>
         </section>
 
         <!-- ========================================== -->
-        <!-- 7. PESTAÑA: MANGA (VISOR PDF DRIVE)        -->
+        <!-- 7. PESTAÑA: MANGA (AZUMANGA DAIOH)         -->
         <!-- ========================================== -->
         <section id="tab-manga" class="tab-content">
-          <div class="media-viewer-container">
-            <!-- ////// 📖 ACÁ PEGA EL ID DE TU PDF DE GOOGLE DRIVE REEMPLAZANDO "TU_ID_DE_PDF" ////// -->
-            <iframe src="https://drive.google.com/file/d/TU_ID_DE_PDF/preview"></iframe>
+          <div class="drive-container">
+            <div class="drive-topbar">
+              <a href="https://drive.google.com/drive/folders/1Gwm0-pdc6mkWe1-vvyz_Kn182wM1M9Uk?usp=sharing" target="_blank" class="btn-drive-open">
+                Abrir carpeta en Google Drive ↗
+              </a>
+            </div>
+            <div class="media-viewer-container">
+              <iframe src="https://drive.google.com/embeddedfolderview?id=1Gwm0-pdc6mkWe1-vvyz_Kn182wM1M9Uk#grid" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
           </div>
         </section>
 
@@ -774,16 +816,34 @@
     setInterval(updatePeruTime, 1000);
     updatePeruTime();
 
-    // 2. REPRODUCTOR DE MÚSICA
+    // 2. PLAYLIST DE MÚSICA CON 5 TEMAS
+    const playlist = [
+      { file: "teardrop.mp3", title: "Teardrop - Massive Attack and Elizabeth Fraser" },
+      { file: "prajamagia.mp3", title: "Praja Magia - Nu Genea" },
+      { file: "sadecesevilmek.mp3", title: "Sadece Sevilmek İstedim - Lin Presto" },
+      { file: "nebulosajade.mp3", title: "Nebulosa Jade - Rufus T. Firefly" },
+      { file: "fakeplastictrees.mp3", title: "Fake Plastic Trees - Radiohead" }
+    ];
+
+    let currentTrackIdx = 0;
     const bgMusic = document.getElementById('bgMusic');
+    const trackName = document.getElementById('trackName');
     const btnPlayMusic = document.getElementById('btnPlayMusic');
+
+    function loadTrack(idx) {
+      currentTrackIdx = idx;
+      bgMusic.src = playlist[idx].file;
+      trackName.innerText = playlist[idx].title;
+    }
+
+    loadTrack(0);
 
     function togglePlayMusic() {
       if (bgMusic.paused) {
         bgMusic.play().then(() => {
           btnPlayMusic.innerText = '❚❚ PAUSA';
         }).catch(() => {
-          alert('Para reproducir música, asegúrate de haber subido el archivo "musica.mp3" a tu GitHub.');
+          alert('Para reproducir música, asegúrate de haber subido el archivo "' + playlist[currentTrackIdx].file + '" a tu repositorio de GitHub.');
         });
       } else {
         bgMusic.pause();
@@ -791,7 +851,30 @@
       }
     }
 
-    // 3. ENCUESTA INTERACTIVA
+    function nextTrack() {
+      currentTrackIdx = (currentTrackIdx + 1) % playlist.length;
+      loadTrack(currentTrackIdx);
+      bgMusic.play().then(() => {
+        btnPlayMusic.innerText = '❚❚ PAUSA';
+      }).catch(() => {});
+    }
+
+    function prevTrack() {
+      currentTrackIdx = (currentTrackIdx - 1 + playlist.length) % playlist.length;
+      loadTrack(currentTrackIdx);
+      bgMusic.play().then(() => {
+        btnPlayMusic.innerText = '❚❚ PAUSA';
+      }).catch(() => {});
+    }
+
+    bgMusic.addEventListener('ended', nextTrack);
+
+    // 3. ROTADOR DE GIFS ALEATORIOS (gif1.gif a gif4.gif)
+    const localGifs = ['gif1.gif', 'gif2.gif', 'gif3.gif', 'gif4.gif'];
+    const selectedGif = localGifs[Math.floor(Math.random() * localGifs.length)];
+    document.getElementById('randomGifImg').src = selectedGif;
+
+    // 4. ENCUESTA INTERACTIVA
     let votes = { gatos: 12, perros: 9 };
     function votePoll(option) {
       votes[option]++;
@@ -803,7 +886,7 @@
       pollBox.innerHTML = `
         <div style="font-size:0.8rem; margin-bottom:4px;">🐱 Gatos: <strong>${pctGatos}%</strong> (${votes.gatos})</div>
         <div style="width:100%; height:6px; background:#333; border-radius:3px; margin-bottom:10px;">
-          <div style="width:${pctGatos}%; height:100%; background:var(--accent-orange); border-radius:3px;"></div>
+          <div style="width:${pctGatos}%; height:100%; background:var(--aero-glow); border-radius:3px;"></div>
         </div>
         <div style="font-size:0.8rem; margin-bottom:4px;">🐶 Perros: <strong>${pctPerros}%</strong> (${votes.perros})</div>
         <div style="width:100%; height:6px; background:#333; border-radius:3px;">
@@ -811,15 +894,6 @@
         </div>
       `;
     }
-
-    // 4. ROTADOR DE GIFS ALEATORIOS
-    const gifList = [
-      "https://media.tenor.com/WfU_j-4sQpAAAAAC/azumanga-daioh-osaka.gif",
-      "https://media.tenor.com/4925-gVn_yAAAAAC/azumanga-daioh.gif",
-      "https://media.tenor.com/J3-u23xX_kIAAAAC/osaka-azumanga.gif"
-    ];
-    const randIndex = Math.floor(Math.random() * gifList.length);
-    document.getElementById('randomGifImg').src = gifList[randIndex];
   </script>
 </body>
 </html>
