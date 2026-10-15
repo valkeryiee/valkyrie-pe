@@ -24,7 +24,6 @@
       user-select: none;
     }
 
-    /* CURSOR ANIMADO PERSONALIZADO */
     body {
       background-color: #0d0f12;
       background-image: url('bg.jpg');
@@ -40,25 +39,19 @@
       align-items: center;
       justify-content: center;
       padding: 25px 15px;
-      cursor: url('cursor.gif'), auto;
     }
 
+    /* CURSOR FLOTANTE AL COSTADO DE LA FLECHA */
     #customCursor {
       position: fixed;
       top: 0;
       left: 0;
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       pointer-events: none;
       z-index: 9999999;
-      transform: translate(-12px, -12px);
       display: none;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      body, button, a, input, textarea {
-        cursor: url('cursor.gif'), auto;
-      }
+      transition: transform 0.04s ease-out;
     }
 
     /* VENTANA PRINCIPAL */
@@ -128,7 +121,7 @@
       background: var(--glass-inner);
     }
 
-    /* SIDEBAR CON TAMAÑOS DE TIPOGRAFÍA UNIFORMES (0.84rem) */
+    /* SIDEBAR CON TIPOGRAFÍA UNIFORME */
     .sidebar {
       width: 195px;
       background: rgba(12, 14, 18, 0.45);
@@ -288,7 +281,7 @@
       font-size: 1rem;
     }
 
-    /* CALENDARIO FECHA */
+    /* CALENDARIO */
     .calendar-display {
       text-align: center;
       padding: 6px 0;
@@ -403,7 +396,7 @@
       object-fit: cover;
     }
 
-    /* COPYRIGHT AL PIE */
+    /* FOOTER */
     .page-footer {
       margin-top: 18px;
       font-size: 0.75rem;
@@ -496,8 +489,8 @@
       font-weight: 700;
       color: var(--aero-glow);
     }
-    .btn-drive-open {
-      padding: 6px 12px;
+    .btn-action {
+      padding: 6px 14px;
       background: linear-gradient(180deg, rgba(255, 157, 66, 0.25) 0%, rgba(30, 22, 16, 0.7) 100%);
       border: 1px solid var(--aero-glow);
       color: #fff;
@@ -505,9 +498,10 @@
       font-weight: 600;
       text-decoration: none;
       border-radius: 5px;
+      cursor: pointer;
       transition: all 0.15s ease;
     }
-    .btn-drive-open:hover {
+    .btn-action:hover {
       background: var(--aero-glow);
       color: #000;
     }
@@ -553,7 +547,7 @@
       border: none;
     }
 
-    /* CHAT / LIBRO DE VISITAS TRANSLÚCIDO */
+    /* CHAT */
     .chat-box {
       width: 100%;
       min-height: 480px;
@@ -584,7 +578,7 @@
       font-weight: bold !important;
     }
 
-    /* JUEGO (DEMO) */
+    /* JUEGO DEMO */
     .game-wrapper {
       position: relative;
       width: 100%;
@@ -643,7 +637,6 @@
       fill: #ffffff;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 860px) {
       .window-body {
         flex-direction: column;
@@ -669,10 +662,9 @@
 </head>
 <body>
 
-  <!-- ELEMENTO VISUAL DEL CURSOR ANIMADO -->
+  <!-- ELEMENTO DEL CURSOR ANIMADO (DESPLAZADO AL COSTADO) -->
   <img id="customCursor" src="cursor.gif" alt="cursor">
 
-  <!-- VENTANA PRINCIPAL -->
   <div class="aero-window">
     
     <header class="window-header">
@@ -685,10 +677,9 @@
 
     <div class="window-body">
       
-      <!-- MENÚ LATERAL: CHAT DEBAJO DE BLOG -->
       <nav class="sidebar">
         <button class="nav-btn active" onclick="openTab(event, 'tab-inicio')">Inicio</button>
-        <button class="nav-btn" onclick="openTab(event, 'tab-sobremi')">Sobre mí</button>
+        <button class="nav-btn" onclick="openTab(event, 'tab-sobremi')">Acerca de</button>
         <button class="nav-btn" onclick="openTab(event, 'tab-blog')">Blog</button>
         <button class="nav-btn" onclick="openTab(event, 'tab-chat')">Chat</button>
         
@@ -704,16 +695,12 @@
 
       <main class="content-area">
 
-        <!-- ========================================== -->
-        <!-- 1. PESTAÑA: INICIO                         -->
-        <!-- ========================================== -->
+        <!-- 1. INICIO -->
         <section id="tab-inicio" class="tab-content active">
           <div class="inicio-grid">
             
-            <!-- Columna Izquierda: Música + Fecha + Hora -->
             <div class="inicio-col">
               
-              <!-- Música -->
               <div class="widget-box">
                 <div class="widget-title">Música</div>
                 <div class="music-player">
@@ -727,7 +714,6 @@
                 </div>
               </div>
 
-              <!-- Fecha -->
               <div class="widget-box">
                 <div class="widget-title">Fecha</div>
                 <div class="calendar-display">
@@ -736,7 +722,6 @@
                 </div>
               </div>
 
-              <!-- Hora (Reloj Circular Analógico) -->
               <div class="widget-box">
                 <div class="widget-title">Hora</div>
                 <div class="clock-container">
@@ -747,17 +732,15 @@
 
             </div>
 
-            <!-- Columna Centro: SOLO EL GIF -->
             <div class="center-display">
               <div class="random-gif-box">
                 <img id="randomGifImg" src="gif1.gif" alt="Anime GIF" onerror="this.src='https://media.tenor.com/WfU_j-4sQpAAAAAC/azumanga-daioh-osaka.gif'" />
               </div>
             </div>
 
-            <!-- Columna Derecha: Encuesta + Buy Me a Coffee -->
             <div class="inicio-col">
               
-              <!-- Encuesta -->
+              <!-- Encuesta con "Un ave" -->
               <div class="widget-box">
                 <div class="widget-title">¿Qué mascota tienes?</div>
                 <div class="poll-options" id="pollBox">
@@ -765,7 +748,7 @@
                   <button class="poll-btn" onclick="votePoll('perro')">🐶 Perro</button>
                   <button class="poll-btn" onclick="votePoll('hamster')">🐹 Hámster</button>
                   <button class="poll-btn" onclick="votePoll('roedor')">🐭 Otro roedor</button>
-                  <button class="poll-btn" onclick="votePoll('ave')">🦜 Una ave</button>
+                  <button class="poll-btn" onclick="votePoll('ave')">🦜 Un ave</button>
                   <button class="poll-btn" onclick="votePoll('otro')">✨ Otro...</button>
                 </div>
                 <div class="poll-awareness">
@@ -773,7 +756,6 @@
                 </div>
               </div>
 
-              <!-- Buy Me a Coffee -->
               <!-- ////// ☕ ACÁ PEGA EL LINK DE BUY ME A COFFEE ////// -->
               <a href="https://buymeacoffee.com/ACÁ_PEGA_EL_LINK" target="_blank" class="bmc-btn">
                 ☕ Cómprame un café
@@ -784,19 +766,19 @@
           </div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- 2. PESTAÑA: SOBRE MÍ (LIMPIO)              -->
-        <!-- ========================================== -->
-        <section id="tab-sobremi" class="tab-content"></section>
+        <!-- 2. ACERCA DE -->
+        <section id="tab-sobremi" class="tab-content">
+          <div style="background: var(--glass-card); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; padding: 22px; backdrop-filter: blur(4px); box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            <p style="font-size: 0.92rem; line-height: 1.65; color: #e4e8f0; font-weight: 500;">
+              El nombre de la página lo saqué de las guerreras al servicio de Odín y de la resistencia de Steins;Gate.
+            </p>
+          </div>
+        </section>
 
-        <!-- ========================================== -->
-        <!-- 3. PESTAÑA: BLOG (LIMPIO)                  -->
-        <!-- ========================================== -->
+        <!-- 3. BLOG -->
         <section id="tab-blog" class="tab-content"></section>
 
-        <!-- ========================================== -->
-        <!-- 4. PESTAÑA: CHAT (LIBRO DE VISITAS)        -->
-        <!-- ========================================== -->
+        <!-- 4. CHAT -->
         <section id="tab-chat" class="tab-content">
           <div class="chat-box">
             <div id="HCB_comment_box" style="color:#f0f0f0;">Cargando mensajes...</div>
@@ -813,18 +795,14 @@
           </div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- 5. PESTAÑA: ROPA                           -->
-        <!-- ========================================== -->
+        <!-- 5. ROPA -->
         <section id="tab-ropa" class="tab-content">
           <div style="text-align:center; padding: 120px 0; color:var(--text-muted); font-size:1.1rem; letter-spacing:2px; text-transform:uppercase;">
             Próximamente
           </div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- 6. PESTAÑA: FIGURAS                        -->
-        <!-- ========================================== -->
+        <!-- 6. FIGURAS -->
         <section id="tab-figuras" class="tab-content">
           <div class="items-grid">
             
@@ -858,19 +836,16 @@
           </div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- 7. PESTAÑA: ANIME (26 EPISODIOS + EXTRA)    -->
-        <!-- ========================================== -->
+        <!-- 7. ANIME (YOUTUBE EMBED + BOTÓN DIRECTO) -->
         <section id="tab-anime" class="tab-content">
           <div class="media-layout">
             <div class="media-topbar">
               <span id="animeEpTitle" class="media-title-current">Azumanga Daioh - Episodio 01</span>
-              <a id="animeYtBtn" href="https://youtu.be/2yeWBzeWHGI" target="_blank" class="btn-drive-open">
+              <a id="animeYtBtn" href="https://youtu.be/2yeWBzeWHGI" target="_blank" class="btn-action">
                 Ver en YouTube ↗
               </a>
             </div>
 
-            <!-- Selector deslizable de los 27 episodios -->
             <div class="selector-bar" id="animeEpBar"></div>
 
             <div class="media-viewer-container">
@@ -879,30 +854,25 @@
           </div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- 8. PESTAÑA: MANGA (5 TOMOS DRIVE)          -->
-        <!-- ========================================== -->
+        <!-- 8. MANGA (CON PANTALLA COMPLETA NATIVA EN LA MISMA PÁGINA) -->
         <section id="tab-manga" class="tab-content">
           <div class="media-layout">
             <div class="media-topbar">
               <span id="mangaTomoTitle" class="media-title-current">Azumanga Daioh - Tomo 01</span>
-              <a id="mangaDriveBtn" href="https://drive.google.com/file/d/16TaxTpoZWP7JniH3GTmeytW8FKvy4eA8/view" target="_blank" class="btn-drive-open">
-                Pantalla Completa ↗
-              </a>
+              <button onclick="toggleMangaFullscreen()" class="btn-action">
+                Pantalla Completa ⛶
+              </button>
             </div>
 
-            <!-- Selector de Tomos -->
             <div class="selector-bar" id="mangaTomoBar"></div>
 
-            <div class="media-viewer-container">
+            <div class="media-viewer-container" id="mangaContainer">
               <iframe id="mangaIframe" src="https://drive.google.com/file/d/16TaxTpoZWP7JniH3GTmeytW8FKvy4eA8/preview" allow="fullscreen" allowfullscreen></iframe>
             </div>
           </div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- 9. PESTAÑA: DEMO (JUEGO OSAKA)             -->
-        <!-- ========================================== -->
+        <!-- 9. DEMO -->
         <section id="tab-demo" class="tab-content">
           <div class="game-wrapper">
             <canvas id="gameCanvas" width="760" height="250"></canvas>
@@ -921,21 +891,19 @@
     </div>
   </div>
 
-  <!-- COPYRIGHT DEBAJO DEL RECUADRO GRANDE -->
   <footer class="page-footer">
     [ © valkyrie.pe and vale_ota ]
   </footer>
 
   <script>
-    // SCRIPT DEL CURSOR ANIMADO (SIGUE AL RATÓN)
+    // 1. CURSOR FLOTANTE AL COSTADO
     const customCursor = document.getElementById('customCursor');
     window.addEventListener('mousemove', (e) => {
       customCursor.style.display = 'block';
-      customCursor.style.left = e.clientX + 'px';
-      customCursor.style.top = e.clientY + 'px';
+      customCursor.style.left = (e.clientX + 16) + 'px';
+      customCursor.style.top = (e.clientY + 16) + 'px';
     });
 
-    // CAMBIO DE PESTAÑAS
     function openTab(evt, tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
@@ -943,7 +911,7 @@
       evt.currentTarget.classList.add('active');
     }
 
-    // 1. RELOJ ANALÓGICO CIRCULAR Y FECHA
+    // 2. RELOJ Y FECHA
     function drawAnalogClock(hours, minutes, seconds) {
       const canvas = document.getElementById('analogClock');
       if (!canvas) return;
@@ -954,7 +922,6 @@
       ctx.save();
       ctx.translate(radius, radius);
 
-      // Fondo esfera tipo cristal Aero
       const grad = ctx.createRadialGradient(0, 0, radius * 0.1, 0, 0, radius * 0.95);
       grad.addColorStop(0, 'rgba(26, 32, 42, 0.85)');
       grad.addColorStop(0.85, 'rgba(12, 16, 22, 0.95)');
@@ -964,12 +931,10 @@
       ctx.arc(0, 0, radius - 4, 0, Math.PI * 2);
       ctx.fill();
 
-      // Borde exterior
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
       ctx.lineWidth = 2.5;
       ctx.stroke();
 
-      // Marcas horarias
       for (let i = 0; i < 12; i++) {
         const angle = (i * Math.PI) / 6;
         const x1 = Math.sin(angle) * (radius - 12);
@@ -984,7 +949,6 @@
         ctx.stroke();
       }
 
-      // Aguja horas
       const hourAngle = ((hours % 12) + minutes / 60 + seconds / 3600) * (Math.PI / 6);
       ctx.beginPath();
       ctx.moveTo(0, 0);
@@ -994,7 +958,6 @@
       ctx.lineCap = 'round';
       ctx.stroke();
 
-      // Aguja minutos
       const minAngle = (minutes + seconds / 60) * (Math.PI / 30);
       ctx.beginPath();
       ctx.moveTo(0, 0);
@@ -1004,7 +967,6 @@
       ctx.lineCap = 'round';
       ctx.stroke();
 
-      // Segundero naranja
       const secAngle = seconds * (Math.PI / 30);
       ctx.beginPath();
       ctx.moveTo(-Math.sin(secAngle) * 8, Math.cos(secAngle) * 8);
@@ -1013,7 +975,6 @@
       ctx.lineWidth = 1.4;
       ctx.stroke();
 
-      // Centro
       ctx.beginPath();
       ctx.arc(0, 0, 3.5, 0, Math.PI * 2);
       ctx.fillStyle = '#ff9d42';
@@ -1058,7 +1019,7 @@
     setInterval(updatePeruTime, 1000);
     updatePeruTime();
 
-    // 2. PLAYLIST DE MÚSICA
+    // 3. MÚSICA
     const playlist = [
       { file: "teardrop.mp3", title: "Teardrop - Massive Attack and Elizabeth Fraser" },
       { file: "prajamagia.mp3", title: "Praja Magia - Nu Genea" },
@@ -1111,28 +1072,16 @@
 
     bgMusic.addEventListener('ended', nextTrack);
 
-    // 3. ROTADOR DE GIFS ALEATORIOS
+    // 4. ROTADOR DE GIFS ALEATORIOS
     const localGifs = ['gif1.gif', 'gif2.gif', 'gif3.gif', 'gif4.gif'];
     const selectedGif = localGifs[Math.floor(Math.random() * localGifs.length)];
     document.getElementById('randomGifImg').src = selectedGif;
 
-    // 4. ENCUESTA INICIAL EN 0 VOTOS REALES
-    let petVotes = {
-      gato: 0,
-      perro: 0,
-      hamster: 0,
-      roedor: 0,
-      ave: 0,
-      otro: 0
-    };
-
+    // 5. ENCUESTA ("UN AVE")
+    let petVotes = { gato: 0, perro: 0, hamster: 0, roedor: 0, ave: 0, otro: 0 };
     const petLabels = {
-      gato: "🐱 Gato",
-      perro: "🐶 Perro",
-      hamster: "🐹 Hámster",
-      roedor: "🐭 Otro roedor",
-      ave: "🦜 Una ave",
-      otro: "✨ Otro..."
+      gato: "🐱 Gato", perro: "🐶 Perro", hamster: "🐹 Hámster",
+      roedor: "🐭 Otro roedor", ave: "🦜 Un ave", otro: "✨ Otro..."
     };
 
     function votePoll(option) {
@@ -1157,7 +1106,7 @@
       pollBox.innerHTML = html;
     }
 
-    // 5. ANIME: 26 EPISODIOS + EXTRA (YOUTUBE EMBED)
+    // 6. ANIME (YOUTUBE)
     const animePlaylist = [
       { num: "01", id: "2yeWBzeWHGI", title: "Azumanga Daioh - Episodio 01" },
       { num: "02", id: "v26H7QG438E", title: "Azumanga Daioh - Episodio 02" },
@@ -1210,7 +1159,7 @@
       });
     }
 
-    // 6. MANGA: 5 TOMOS COMPLETOS (GOOGLE DRIVE)
+    // 7. MANGA: 5 TOMOS + PANTALLA COMPLETA NATIVA
     const mangaPlaylist = [
       { tomo: "01", id: "16TaxTpoZWP7JniH3GTmeytW8FKvy4eA8", title: "Azumanga Daioh - Tomo 01" },
       { tomo: "02", id: "1a67Zs8HY_mLXTLnL0DDt_Ojo1WLdMqKB", title: "Azumanga Daioh - Tomo 02" },
@@ -1232,7 +1181,6 @@
       const tm = mangaPlaylist[idx];
       document.getElementById('mangaTomoTitle').innerText = tm.title;
       document.getElementById('mangaIframe').src = `https://drive.google.com/file/d/${tm.id}/preview`;
-      document.getElementById('mangaDriveBtn').href = `https://drive.google.com/file/d/${tm.id}/view`;
       
       const buttons = mangaBar.querySelectorAll('.sel-btn');
       buttons.forEach((b, i) => {
@@ -1241,7 +1189,22 @@
       });
     }
 
-    // 7. MOTOR DEL JUEGO DEMO (OSAKA)
+    function toggleMangaFullscreen() {
+      const container = document.getElementById('mangaIframe');
+      if (!document.fullscreenElement) {
+        if (container.requestFullscreen) {
+          container.requestFullscreen();
+        } else if (container.webkitRequestFullscreen) {
+          container.webkitRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // 8. MOTOR DEL JUEGO DEMO (OSAKA)
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
     const overlay = document.getElementById('playOverlay');
