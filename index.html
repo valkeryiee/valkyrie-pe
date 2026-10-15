@@ -24,6 +24,7 @@
       user-select: none;
     }
 
+    /* CURSOR ANIMADO PERSONALIZADO */
     body {
       background-color: #0d0f12;
       background-image: url('bg.jpg');
@@ -39,11 +40,24 @@
       align-items: center;
       justify-content: center;
       padding: 25px 15px;
+      cursor: url('cursor.gif'), auto;
+    }
+
+    #customCursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 36px;
+      height: 36px;
+      pointer-events: none;
+      z-index: 9999999;
+      transform: translate(-12px, -12px);
+      display: none;
     }
 
     @media (hover: hover) and (pointer: fine) {
-      body, button, a {
-        cursor: crosshair;
+      body, button, a, input, textarea {
+        cursor: url('cursor.gif'), auto;
       }
     }
 
@@ -114,7 +128,7 @@
       background: var(--glass-inner);
     }
 
-    /* SIDEBAR CON TAMAÑOS DE TIPOGRAFÍA UNIFORMES */
+    /* SIDEBAR CON TAMAÑOS DE TIPOGRAFÍA UNIFORMES (0.84rem) */
     .sidebar {
       width: 195px;
       background: rgba(12, 14, 18, 0.45);
@@ -144,7 +158,7 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 6px;
       color: var(--text-main);
-      font-size: 0.84rem; /* TAMAÑO EXACTO PARA TODOS */
+      font-size: 0.84rem;
       font-weight: 600;
       letter-spacing: 0.6px;
       text-align: left;
@@ -154,7 +168,7 @@
 
     .nav-btn.sub-item {
       padding-left: 20px;
-      font-size: 0.84rem; /* MISMO TAMAÑO EXACTO */
+      font-size: 0.84rem;
       color: #ccd2de;
     }
 
@@ -364,7 +378,7 @@
       transform: scale(1.02);
     }
 
-    /* CENTRO: SOLO EL GIF (SIN TEXTOS DEBAJO) */
+    /* CENTRO: SOLO EL GIF */
     .center-display {
       display: flex;
       flex-direction: column;
@@ -389,7 +403,7 @@
       object-fit: cover;
     }
 
-    /* COPYRIGHT INFERIOR (DEBAJO DE TODO EL RECUADRO) */
+    /* COPYRIGHT AL PIE */
     .page-footer {
       margin-top: 18px;
       font-size: 0.75rem;
@@ -501,7 +515,9 @@
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      padding-bottom: 4px;
+      padding-bottom: 6px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--aero-glow) rgba(0,0,0,0.3);
     }
     .sel-btn {
       padding: 6px 12px;
@@ -653,6 +669,9 @@
 </head>
 <body>
 
+  <!-- ELEMENTO VISUAL DEL CURSOR ANIMADO -->
+  <img id="customCursor" src="cursor.gif" alt="cursor">
+
   <!-- VENTANA PRINCIPAL -->
   <div class="aero-window">
     
@@ -666,7 +685,7 @@
 
     <div class="window-body">
       
-      <!-- MENÚ LATERAL: CHAT REUBICADO DEBAJO DE BLOG -->
+      <!-- MENÚ LATERAL: CHAT DEBAJO DE BLOG -->
       <nav class="sidebar">
         <button class="nav-btn active" onclick="openTab(event, 'tab-inicio')">Inicio</button>
         <button class="nav-btn" onclick="openTab(event, 'tab-sobremi')">Sobre mí</button>
@@ -691,7 +710,7 @@
         <section id="tab-inicio" class="tab-content active">
           <div class="inicio-grid">
             
-            <!-- Columna Izquierda: Música + Fecha + Hora (Reloj Circular) -->
+            <!-- Columna Izquierda: Música + Fecha + Hora -->
             <div class="inicio-col">
               
               <!-- Música -->
@@ -728,7 +747,7 @@
 
             </div>
 
-            <!-- Columna Centro: SOLO EL GIF (SIN TEXTOS DEBAJO) -->
+            <!-- Columna Centro: SOLO EL GIF -->
             <div class="center-display">
               <div class="random-gif-box">
                 <img id="randomGifImg" src="gif1.gif" alt="Anime GIF" onerror="this.src='https://media.tenor.com/WfU_j-4sQpAAAAAC/azumanga-daioh-osaka.gif'" />
@@ -776,7 +795,7 @@
         <section id="tab-blog" class="tab-content"></section>
 
         <!-- ========================================== -->
-        <!-- 4. PESTAÑA: CHAT (REUBICADO TRAS BLOG)     -->
+        <!-- 4. PESTAÑA: CHAT (LIBRO DE VISITAS)        -->
         <!-- ========================================== -->
         <section id="tab-chat" class="tab-content">
           <div class="chat-box">
@@ -840,50 +859,43 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- 7. PESTAÑA: ANIME (AZUMANGA DAIOH)         -->
+        <!-- 7. PESTAÑA: ANIME (26 EPISODIOS + EXTRA)    -->
         <!-- ========================================== -->
         <section id="tab-anime" class="tab-content">
           <div class="media-layout">
             <div class="media-topbar">
-              <span id="animeEpTitle" class="media-title-current">Episodio 01: Miss Yukari</span>
-              <a id="animeDriveBtn" href="https://drive.google.com/file/d/12ZOmPXogno79deR1Q8ONr1Zt7pLCx7is/view" target="_blank" class="btn-drive-open">
-                Pantalla Completa ↗
+              <span id="animeEpTitle" class="media-title-current">Azumanga Daioh - Episodio 01</span>
+              <a id="animeYtBtn" href="https://youtu.be/2yeWBzeWHGI" target="_blank" class="btn-drive-open">
+                Ver en YouTube ↗
               </a>
             </div>
 
-            <div class="selector-bar" id="animeEpBar">
-              <button class="sel-btn active" onclick="selectAnimeEp(0)">Episodio 01</button>
-              <button class="sel-btn" onclick="selectAnimeEp(1)">Episodio 02</button>
-              <button class="sel-btn" onclick="selectAnimeEp(2)">Episodio 03</button>
-            </div>
+            <!-- Selector deslizable de los 27 episodios -->
+            <div class="selector-bar" id="animeEpBar"></div>
 
             <div class="media-viewer-container">
-              <iframe id="animeIframe" src="https://drive.google.com/file/d/12ZOmPXogno79deR1Q8ONr1Zt7pLCx7is/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+              <iframe id="animeIframe" src="https://www.youtube.com/embed/2yeWBzeWHGI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>
             </div>
           </div>
         </section>
 
         <!-- ========================================== -->
-        <!-- 8. PESTAÑA: MANGA (AZUMANGA DAIOH)         -->
+        <!-- 8. PESTAÑA: MANGA (5 TOMOS DRIVE)          -->
         <!-- ========================================== -->
         <section id="tab-manga" class="tab-content">
           <div class="media-layout">
             <div class="media-topbar">
               <span id="mangaTomoTitle" class="media-title-current">Azumanga Daioh - Tomo 01</span>
-              <a id="mangaDriveBtn" href="https://drive.google.com/file/d/16TaxTpoZWPEJniH3GTmeytW8FKvy4eA8/view" target="_blank" class="btn-drive-open">
-                Leer en Pantalla Completa ↗
+              <a id="mangaDriveBtn" href="https://drive.google.com/file/d/16TaxTpoZWP7JniH3GTmeytW8FKvy4eA8/view" target="_blank" class="btn-drive-open">
+                Pantalla Completa ↗
               </a>
             </div>
 
-            <div class="selector-bar" id="mangaTomoBar">
-              <button class="sel-btn active" onclick="selectMangaTomo(0)">Tomo 01</button>
-              <button class="sel-btn" onclick="selectMangaTomo(1)">Tomo 02</button>
-              <button class="sel-btn" onclick="selectMangaTomo(2)">Tomo 03</button>
-              <button class="sel-btn" onclick="selectMangaTomo(3)">Tomo 04</button>
-            </div>
+            <!-- Selector de Tomos -->
+            <div class="selector-bar" id="mangaTomoBar"></div>
 
             <div class="media-viewer-container">
-              <iframe id="mangaIframe" src="https://drive.google.com/file/d/16TaxTpoZWPEJniH3GTmeytW8FKvy4eA8/preview" allow="fullscreen" allowfullscreen></iframe>
+              <iframe id="mangaIframe" src="https://drive.google.com/file/d/16TaxTpoZWP7JniH3GTmeytW8FKvy4eA8/preview" allow="fullscreen" allowfullscreen></iframe>
             </div>
           </div>
         </section>
@@ -915,6 +927,15 @@
   </footer>
 
   <script>
+    // SCRIPT DEL CURSOR ANIMADO (SIGUE AL RATÓN)
+    const customCursor = document.getElementById('customCursor');
+    window.addEventListener('mousemove', (e) => {
+      customCursor.style.display = 'block';
+      customCursor.style.left = e.clientX + 'px';
+      customCursor.style.top = e.clientY + 'px';
+    });
+
+    // CAMBIO DE PESTAÑAS
     function openTab(evt, tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
@@ -922,7 +943,7 @@
       evt.currentTarget.classList.add('active');
     }
 
-    // 1. DIBUJO DEL RELOJ ANALÓGICO CIRCULAR Y FECHA
+    // 1. RELOJ ANALÓGICO CIRCULAR Y FECHA
     function drawAnalogClock(hours, minutes, seconds) {
       const canvas = document.getElementById('analogClock');
       if (!canvas) return;
@@ -943,7 +964,7 @@
       ctx.arc(0, 0, radius - 4, 0, Math.PI * 2);
       ctx.fill();
 
-      // Borde exterior cromado
+      // Borde exterior
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
       ctx.lineWidth = 2.5;
       ctx.stroke();
@@ -963,7 +984,7 @@
         ctx.stroke();
       }
 
-      // Aguja de horas
+      // Aguja horas
       const hourAngle = ((hours % 12) + minutes / 60 + seconds / 3600) * (Math.PI / 6);
       ctx.beginPath();
       ctx.moveTo(0, 0);
@@ -973,7 +994,7 @@
       ctx.lineCap = 'round';
       ctx.stroke();
 
-      // Aguja de minutos
+      // Aguja minutos
       const minAngle = (minutes + seconds / 60) * (Math.PI / 30);
       ctx.beginPath();
       ctx.moveTo(0, 0);
@@ -983,7 +1004,7 @@
       ctx.lineCap = 'round';
       ctx.stroke();
 
-      // Segundero (naranja aero)
+      // Segundero naranja
       const secAngle = seconds * (Math.PI / 30);
       ctx.beginPath();
       ctx.moveTo(-Math.sin(secAngle) * 8, Math.cos(secAngle) * 8);
@@ -992,7 +1013,7 @@
       ctx.lineWidth = 1.4;
       ctx.stroke();
 
-      // Pin central
+      // Centro
       ctx.beginPath();
       ctx.arc(0, 0, 3.5, 0, Math.PI * 2);
       ctx.fillStyle = '#ff9d42';
@@ -1136,41 +1157,84 @@
       pollBox.innerHTML = html;
     }
 
-    // 5. PLAYLIST DE ANIME CON CAMBIO DE EPISODIOS
+    // 5. ANIME: 26 EPISODIOS + EXTRA (YOUTUBE EMBED)
     const animePlaylist = [
-      { title: "Episodio 01: Miss Yukari", id: "12ZOmPXogno79deR1Q8ONr1Zt7pLCx7is" },
-      { title: "Episodio 02: Osaka", id: "TU_ID_DE_DRIVE_AQUI" },
-      { title: "Episodio 03: Nyamo", id: "TU_ID_DE_DRIVE_AQUI" }
+      { num: "01", id: "2yeWBzeWHGI", title: "Azumanga Daioh - Episodio 01" },
+      { num: "02", id: "v26H7QG438E", title: "Azumanga Daioh - Episodio 02" },
+      { num: "03", id: "s7aZi72gmIE", title: "Azumanga Daioh - Episodio 03" },
+      { num: "04", id: "cOuolVeOd4k", title: "Azumanga Daioh - Episodio 04" },
+      { num: "05", id: "KuCPoYk_Pu4", title: "Azumanga Daioh - Episodio 05" },
+      { num: "06", id: "8B7P59cmgz4", title: "Azumanga Daioh - Episodio 06" },
+      { num: "07", id: "QA9QZS6eFuo", title: "Azumanga Daioh - Episodio 07" },
+      { num: "08", id: "HYI4hTYr1kE", title: "Azumanga Daioh - Episodio 08" },
+      { num: "09", id: "KF5PlWle8a4", title: "Azumanga Daioh - Episodio 09" },
+      { num: "10", id: "OQe1wdDz-o0", title: "Azumanga Daioh - Episodio 10" },
+      { num: "11", id: "36T9Ulj7hvw", title: "Azumanga Daioh - Episodio 11" },
+      { num: "12", id: "yBgbjriSFpY", title: "Azumanga Daioh - Episodio 12" },
+      { num: "13", id: "CnQhnlw7vlA", title: "Azumanga Daioh - Episodio 13" },
+      { num: "14", id: "2H0kqvEM5lE", title: "Azumanga Daioh - Episodio 14" },
+      { num: "15", id: "jRMA2_aIIVU", title: "Azumanga Daioh - Episodio 15" },
+      { num: "16", id: "2MQcL7VS9mE", title: "Azumanga Daioh - Episodio 16" },
+      { num: "17", id: "lXpKX9yXEsI", title: "Azumanga Daioh - Episodio 17" },
+      { num: "18", id: "36Zh67SZL20", title: "Azumanga Daioh - Episodio 18" },
+      { num: "19", id: "S1fifldmrrw", title: "Azumanga Daioh - Episodio 19" },
+      { num: "20", id: "93-AfGBbjhs", title: "Azumanga Daioh - Episodio 20" },
+      { num: "21", id: "InV5v6s-aOI", title: "Azumanga Daioh - Episodio 21" },
+      { num: "22", id: "7gXMRvzDEEj6eZ6l", title: "Azumanga Daioh - Episodio 22" },
+      { num: "23", id: "fx67956B9uK24F7K", title: "Azumanga Daioh - Episodio 23" },
+      { num: "24", id: "2VLI0AiKvjlcJV2H", title: "Azumanga Daioh - Episodio 24" },
+      { num: "25", id: "DJbesAcxB-aiY-QM", title: "Azumanga Daioh - Episodio 25" },
+      { num: "26", id: "OUjpoQftM-AxAXbh", title: "Azumanga Daioh - Episodio 26" },
+      { num: "Extra", id: "lxho3hhtiLE", title: "Azumanga Daioh - Capítulo Extra" }
     ];
+
+    const animeBar = document.getElementById('animeEpBar');
+    animePlaylist.forEach((ep, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'sel-btn' + (idx === 0 ? ' active' : '');
+      btn.innerText = ep.num === "Extra" ? "Extra" : `Ep ${ep.num}`;
+      btn.onclick = () => selectAnimeEp(idx);
+      animeBar.appendChild(btn);
+    });
 
     function selectAnimeEp(idx) {
       const ep = animePlaylist[idx];
       document.getElementById('animeEpTitle').innerText = ep.title;
-      document.getElementById('animeIframe').src = "https://drive.google.com/file/d/" + ep.id + "/preview";
-      document.getElementById('animeDriveBtn').href = "https://drive.google.com/file/d/" + ep.id + "/view";
+      document.getElementById('animeIframe').src = `https://www.youtube.com/embed/${ep.id}?autoplay=1`;
+      document.getElementById('animeYtBtn').href = `https://youtu.be/${ep.id}`;
       
-      const buttons = document.querySelectorAll('#animeEpBar .sel-btn');
+      const buttons = animeBar.querySelectorAll('.sel-btn');
       buttons.forEach((b, i) => {
         if (i === idx) b.classList.add('active');
         else b.classList.remove('active');
       });
     }
 
-    // 6. SELECTOR DE TOMOS PARA MANGA
+    // 6. MANGA: 5 TOMOS COMPLETOS (GOOGLE DRIVE)
     const mangaPlaylist = [
-      { title: "Azumanga Daioh - Tomo 01", id: "16TaxTpoZWPEJniH3GTmeytW8FKvy4eA8" },
-      { title: "Azumanga Daioh - Tomo 02", id: "TU_ID_DE_DRIVE_AQUI" },
-      { title: "Azumanga Daioh - Tomo 03", id: "TU_ID_DE_DRIVE_AQUI" },
-      { title: "Azumanga Daioh - Tomo 04", id: "TU_ID_DE_DRIVE_AQUI" }
+      { tomo: "01", id: "16TaxTpoZWP7JniH3GTmeytW8FKvy4eA8", title: "Azumanga Daioh - Tomo 01" },
+      { tomo: "02", id: "1a67Zs8HY_mLXTLnL0DDt_Ojo1WLdMqKB", title: "Azumanga Daioh - Tomo 02" },
+      { tomo: "03", id: "1RiNa65W4PR94mQip70CBp-ZwyzuoNUF2", title: "Azumanga Daioh - Tomo 03" },
+      { tomo: "04", id: "13V4_cS3VYZqBXRst8nQRkrNYfNFS_LRO", title: "Azumanga Daioh - Tomo 04" },
+      { tomo: "05", id: "1Gp9OuNkgSkZQHhkKlDD_po0By1gpMp4y", title: "Azumanga Daioh - Tomo 05" }
     ];
 
+    const mangaBar = document.getElementById('mangaTomoBar');
+    mangaPlaylist.forEach((tm, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'sel-btn' + (idx === 0 ? ' active' : '');
+      btn.innerText = `Tomo ${tm.tomo}`;
+      btn.onclick = () => selectMangaTomo(idx);
+      mangaBar.appendChild(btn);
+    });
+
     function selectMangaTomo(idx) {
-      const tomo = mangaPlaylist[idx];
-      document.getElementById('mangaTomoTitle').innerText = tomo.title;
-      document.getElementById('mangaIframe').src = "https://drive.google.com/file/d/" + tomo.id + "/preview";
-      document.getElementById('mangaDriveBtn').href = "https://drive.google.com/file/d/" + tomo.id + "/view";
+      const tm = mangaPlaylist[idx];
+      document.getElementById('mangaTomoTitle').innerText = tm.title;
+      document.getElementById('mangaIframe').src = `https://drive.google.com/file/d/${tm.id}/preview`;
+      document.getElementById('mangaDriveBtn').href = `https://drive.google.com/file/d/${tm.id}/view`;
       
-      const buttons = document.querySelectorAll('#mangaTomoBar .sel-btn');
+      const buttons = mangaBar.querySelectorAll('.sel-btn');
       buttons.forEach((b, i) => {
         if (i === idx) b.classList.add('active');
         else b.classList.remove('active');
